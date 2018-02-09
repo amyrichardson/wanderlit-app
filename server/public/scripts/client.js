@@ -57,7 +57,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/add-book', {
       templateUrl: '/views/templates/add-book.html',
-      controller: 'UserController as vm',
+      controller: 'BookController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

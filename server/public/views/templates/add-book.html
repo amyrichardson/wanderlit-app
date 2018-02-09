@@ -1,3 +1,16 @@
 <header ng-include="'/views/partials/admin-header.html'"></header>
 
-<h2>New Book</h2>
+<form ng-submit="vm.findBooks(vm.bookSearch)">
+    <div>
+        <input type="text" ng-model="vm.bookSearch" />
+    </div>
+    <div>
+        <input class="btn btn-default" type="submit" name="submit" value="Search" />
+    </div>
+</form>
+
+<div ng-repeat="book in vm.goodreadsBooks.list">
+       
+    <p>Title: {{book.best_book.title._text}}</p>
+    <p>Author: {{book.best_book.author.name._text}}</p>
+</div>
