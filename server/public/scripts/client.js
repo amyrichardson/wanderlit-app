@@ -19,8 +19,8 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as vm'
     })
-    .when('/user', {
-      templateUrl: '/views/templates/user.html',
+    .when('/book-lists', {
+      templateUrl: '/views/templates/book-lists.html',
       controller: 'UserController as vm',
       resolve: {
         getuser : function(UserService){
@@ -28,13 +28,40 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
-    .when('/info', {
-      templateUrl: '/views/templates/info.html',
-      controller: 'InfoController as vm',
+    .when('/overview', {
+      templateUrl: '/views/templates/overview.html',
+      controller: 'UserController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
         }
+      }
+    })
+    .when('/book-search', {
+      templateUrl: '/views/templates/book-search.html',
+      controller: 'UserController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/continents-overview', {
+      templateUrl: '/views/templates/continents-overview.html',
+      controller: 'UserController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        } //check for admin type
+      }
+    })
+    .when('/add-book', {
+      templateUrl: '/views/templates/add-book.html',
+      controller: 'UserController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        } //check for admin type
       }
     })
     .otherwise({

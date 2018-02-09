@@ -13,8 +13,28 @@ body, html {
   background-color: #3A3963;
   color: #E8E7E4;
   padding: 5px;
-  text-align: center;
-  border-bottom: 2px solid #AFAFD6; }
+  border-bottom: 2px solid #AFAFD6;
+  text-align: center; }
+
+.instructions .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; }
+
+.header-link a {
+  color: #E8E7E4;
+  text-decoration: none;
+  padding: 5px; }
+
+.header-btn {
+  border: 0;
+  outline: 0;
+  background-color: #3A3963;
+  color: #E8E7E4;
+  cursor: pointer; }
+
+.header-btn:hover {
+  color: #AFAFD6; }
 
 #entryForm {
   margin-top: 14px; }
@@ -34,10 +54,6 @@ body, html {
 .btn-danger {
   margin-left: 10px; }
 
-.navbar {
-  width: 100%;
-  background-color: #292721; }
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -51,7 +67,7 @@ li a {
   display: block;
   color: #F0DC82;
   text-align: center;
-  padding: 8px 16px;
+  padding: 0px 16px;
   text-decoration: none; }
 
 li a:hover {
