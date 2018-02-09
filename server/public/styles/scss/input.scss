@@ -1,0 +1,88 @@
+$font-stack: Helvetica, sans-serif;
+$primary-light: #E8E7E4;
+$primary-dark: #292721;
+$accent-1: #3A3963;
+$accent-2: #F0DC82;
+$accent-3: #AFAFD6;
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: $font-stack;
+    font-size: 14px;
+    background-color: $primary-light;
+    color: $primary-dark;
+  }
+  
+  .instructions .container h1 {
+    font-size: 24px;
+  }
+  
+  .instructions {
+    background-color: $accent-1;
+    color: $primary-light;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 2px solid $accent-3;
+  }
+  
+  #entryForm {
+    margin-top: 14px;
+  }
+  
+  #container {
+    margin-top: 10px;
+  }
+  
+  .container p{
+    margin-top : 14px;
+  }
+  
+  .message {
+    padding: 10px 0;
+  }
+  
+  .message p {
+    margin-left: 10px;
+  }
+  
+  // .message:nth-child(odd) {
+  //    background-color: #eeeeee;
+  // }
+  
+  // .message:nth-child(even) {
+  //   background-color: #f8f8f8;
+  // }
+  
+  .btn-danger{
+    margin-left: 10px;
+  }
+  
+  .navbar {
+    width: 100%;
+    background-color: $primary-dark;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: $accent-2;
+    text-align: center;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    color: $primary-light;
+  }
+  

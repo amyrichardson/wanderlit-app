@@ -1,0 +1,60 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  background-color: #E8E7E4;
+  color: #292721; }
+
+.instructions .container h1 {
+  font-size: 24px; }
+
+.instructions {
+  background-color: #3A3963;
+  color: #E8E7E4;
+  padding: 5px;
+  text-align: center;
+  border-bottom: 2px solid #AFAFD6; }
+
+#entryForm {
+  margin-top: 14px; }
+
+#container {
+  margin-top: 10px; }
+
+.container p {
+  margin-top: 14px; }
+
+.message {
+  padding: 10px 0; }
+
+.message p {
+  margin-left: 10px; }
+
+.btn-danger {
+  margin-left: 10px; }
+
+.navbar {
+  width: 100%;
+  background-color: #292721; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
+li {
+  float: left; }
+
+li a {
+  display: block;
+  color: #F0DC82;
+  text-align: center;
+  padding: 8px 16px;
+  text-decoration: none; }
+
+li a:hover {
+  color: #E8E7E4; }
+
+/*# sourceMappingURL=main.css.map */
