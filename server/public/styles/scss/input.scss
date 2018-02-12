@@ -1,10 +1,9 @@
 $font-display: 'Satisfy', cursive;
 $font-body: 'Open Sans', sans-serif;
-$primary-light: #E8E7E4;
-$primary-dark: #292721;
-$accent-1: #3A3963;
-$accent-2: #F0DC82;
-$accent-3: #AFAFD6;
+$primary-light: #ECEBF0;
+$primary-dark: #1B1C1B;
+$accent-1: #6A7F79;
+$accent-2: #C1CE96;
 
 body, html {
     margin: 0;
@@ -26,7 +25,7 @@ body, html {
     background-color: $accent-1;
     color: $primary-light;
     padding: 5px;
-    border-bottom: 2px solid $accent-3;
+    border-bottom: 2px solid $accent-2;
     text-align: center;
   }
 
@@ -52,7 +51,7 @@ body, html {
   }
 
   .header-btn:hover {
-    color: $accent-3;
+    color: $accent-2;
   }
   
   #entryForm {

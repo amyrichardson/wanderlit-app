@@ -3,9 +3,11 @@ const app = express();
 const bodyParser = require('body-parser');
 const passport = require('./strategies/sql.localstrategy');
 const sessionConfig = require('./modules/session-middleware');
+const env = require('dotenv').config();
 
 // Route includes
 const userRouter = require('./routes/user.router');
+const bookRouter = require('./routes/book.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -20,6 +22,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/books', bookRouter);
 
 // Serve static files
 app.use(express.static('server/public'));
