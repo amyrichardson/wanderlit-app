@@ -122,3 +122,47 @@ body, html {
   .continent-info {
     padding: 20px;
   }
+
+  .book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .book-info {
+    width: 40%;
+    display: flex;
+    margin: 10px;
+    border: 2px solid $accent-2;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .book-cover {
+    border-radius: 5px;
+  }
+
+  .book-info > div {
+    padding-left: 20px;
+  }
+
+  .book-title {
+    color: $accent-1;
+  }
+
+  .main-btn {
+    border: 0;
+    outline: 0;
+    background-color: $accent-1;
+    padding: 5px 15px;
+    font-size: 10pt;
+    cursor: pointer;
+    color: $primary-light;
+    border-radius: 5px;
+  }
+
+  .main-btn:hover {
+    background-color: $accent-2;
+    color: $accent-1;
+  }

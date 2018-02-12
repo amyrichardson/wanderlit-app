@@ -85,4 +85,41 @@ li a:hover {
 .continent-info {
   padding: 20px; }
 
+.book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+
+.book-info {
+  width: 40%;
+  display: flex;
+  margin: 10px;
+  border: 2px solid #C1CE96;
+  border-radius: 5px;
+  padding: 10px; }
+
+.book-cover {
+  border-radius: 5px; }
+
+.book-info > div {
+  padding-left: 20px; }
+
+.book-title {
+  color: #6A7F79; }
+
+.main-btn {
+  border: 0;
+  outline: 0;
+  background-color: #6A7F79;
+  padding: 5px 15px;
+  font-size: 10pt;
+  cursor: pointer;
+  color: #ECEBF0;
+  border-radius: 5px; }
+
+.main-btn:hover {
+  background-color: #C1CE96;
+  color: #6A7F79; }
+
 /*# sourceMappingURL=main.css.map */

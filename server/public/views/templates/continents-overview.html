@@ -1,7 +1,7 @@
 <header ng-include="'/views/partials/admin-header.html'"></header>
 
 <!-- Overview section -->
-<div>
+<!-- <div>
     <h3>Overview of Books</h3>
     <div class="continent-container">
         <div class="continent-info" ng-repeat="continent in vm.continents.list">
@@ -9,7 +9,7 @@
             <p>Books: #</p> 
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Manage books section -->
 <div>
@@ -19,11 +19,16 @@
 
     <input type="text" id="query" ng-model="query">
 
-    <div ng-repeat="book in vm.books.list | filter:query">
-        <img ng-src="{{book.cover_url}}" alt="">
-        <h5>{{book.title}}</h5>
-        <p>{{book.author}}</p>
-        <p>{{book.average_rating}}</p>
-        <p>{{book.year_published}}</p>
+    <div class="book-container">
+        <div class="book-info" ng-repeat="book in vm.books.list | filter:query">
+            <img class="book-cover" ng-src="{{book.cover_url}}" alt="" width="125">
+            <div>
+                <h3 class="book-title">{{book.title}}</h3>
+                <p>By {{book.author}}</p>
+                <p>Rating: {{book.average_rating}}</p>
+                <p>Published: {{book.year_published}}</p>
+                <button class="main-btn">Delete</button>
+            </div>
+        </div>
     </div>
 </div>

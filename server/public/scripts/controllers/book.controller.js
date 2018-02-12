@@ -1,4 +1,4 @@
-myApp.controller('BookController', ['UserService', 'BookService', 'ContinentService', function(UserService, BookService, ContinentService) {
+myApp.controller('BookController', ['UserService', 'BookService', function(UserService, BookService) {
     console.log('BookController created');
     var self = this;
     self.userService = UserService;
@@ -10,8 +10,7 @@ myApp.controller('BookController', ['UserService', 'BookService', 'ContinentServ
     self.books = BookService.books;
 
     //continent list
-    self.continentService = ContinentService;
-    self.continents = ContinentService.continents;
+    self.continents = BookService.continents;
     
 
     //sends book search info to BookService

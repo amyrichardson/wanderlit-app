@@ -4,7 +4,7 @@ myApp.service('BookService', ['$http', function($http) {
     var self = this;
     self.goodreadsBooks = { list: [] };
     self.books = { list: [] };
-    self.continentBooks = { list: [] };
+    self.continents = { list: [] };
 
     //makes http get request to Goodreads API, sends data back to BookController
     self.findBooks = function(bookSearch) {
@@ -36,6 +36,19 @@ myApp.service('BookService', ['$http', function($http) {
         })
     } //end addBook
 
+    //get continents info
+    self.getContinents = function() {
+        $http.get('/continents').then(function(response){
+        console.log('get continents: ', response);
+        self.continents.list = response.data.rows;
+        console.log(self.continents);
+        })
+        .catch(function(error){
+            console.log('get continents error: ', error);
+        })
+    }
+  
+
     //get books by continent 
     self.getBooks = function(continent) {
         //if a continent was chosen, get books for that continent
@@ -61,6 +74,8 @@ myApp.service('BookService', ['$http', function($http) {
     }
 
     //on load
+    self.getContinents();
     self.getBooks();
+    
 
 }]);
