@@ -5,6 +5,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
       username: '',
       password: ''
     };
+    self.currentUser = UserService.userObject;
     self.message = '';
 
     self.login = function () {
@@ -15,13 +16,19 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
         $http.post('/api/user/login', self.user).then(
           function (response) {
             if (response.status == 200) {
-              console.log('success: ', response.data);
-              // location works with SPA (ng-route)
-              $location.path('/book-lists');
+              //if user is not an admin
+              if(response.data.is_admin == false) {
+                // location works with SPA (ng-route)
+                $location.path('/book-lists');
+              } else if(response.data.is_admin == true) {
+                //if user is an admin
+                $location.path('/continents-overview');
+              }
+              
             } else {
               console.log('failure error: ', response);
               self.message = "Incorrect credentials. Please try again.";
-            }
+            } //end else
           },
           function (response) {
             console.log('failure error: ', response);

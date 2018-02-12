@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
   // check if logged in
   if (req.isAuthenticated()) {
     // send back user object from database
+    
     res.send(req.user);
   } else {
     // failure best handled on the server. do redirect here.
@@ -45,7 +46,8 @@ router.post('/register', (req, res, next) => {
 // this middleware will run our POST if successful
 // this middleware will send a 404 if not successful
 router.post('/login', userStrategy.authenticate('local'), (req, res) => {
-  res.sendStatus(200);
+  console.log('req.user: ', req.user);
+  res.send(req.user);
 });
 
 // clear all server session information about this user
