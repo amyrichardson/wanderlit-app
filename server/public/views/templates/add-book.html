@@ -9,17 +9,19 @@
     </div>
 </form>
 
-<div ng-repeat="book in vm.goodreadsBooks.list">
-    <div class="book-container">
-        <img ng-src="{{book.best_book.image_url._text}}" alt="">
-        <p>Title: {{book.best_book.title._text}}</p>
-        <p>Author: {{book.best_book.author.name._text}}</p>
-        <p>Published: {{book.original_publication_year._text}}</p>
-        <p>Rating: {{book.average_rating._text}}</p>
+<div class="book-container" ng-repeat="book in vm.goodreadsBooks.list">
+    <div class="book-info">
+        <img class="book-cover" ng-src="{{book.best_book.image_url._text}}" alt="">
+        <div>
+            <h3 class="book-title">{{book.best_book.title._text}}</h3>
+            <p>Author: {{book.best_book.author.name._text}}</p>
+            <p>Published: {{book.original_publication_year._text}}</p>
+            <p>Rating: {{book.average_rating._text}}</p>
 
-        <select ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
-            <option value="">Select a continent</option>
-        </select>
-        <button ng-click="vm.addBook(book, vm.selectedContinent)">Add Book</button>
+            <select ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
+                <option value="">Select a continent</option>
+            </select>
+            <button class="main-btn" ng-click="vm.addBook(book, vm.selectedContinent)">Add Book</button>
+        </div>
     </div>
 </div>

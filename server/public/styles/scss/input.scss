@@ -1,6 +1,7 @@
 $font-display: 'Satisfy', cursive;
 $font-body: 'Open Sans', sans-serif;
 $primary-light: #ECEBF0;
+$primary-medium: #C1C0C4;
 $primary-dark: #1B1C1B;
 $accent-1: #6A7F79;
 $accent-2: #C1CE96;
@@ -10,7 +11,7 @@ body, html {
     padding: 0;
     font-family: $font-body;
     font-size: 14px;
-    background-color: $primary-light;
+    background-color: $primary-medium;
     color: $primary-dark;
   }
   
@@ -25,7 +26,7 @@ body, html {
     background-color: $accent-1;
     color: $primary-light;
     padding: 5px;
-    border-bottom: 2px solid $accent-2;
+    border-bottom: 4px solid $accent-2;
     text-align: center;
   }
 
@@ -137,10 +138,12 @@ body, html {
     border: 2px solid $accent-2;
     border-radius: 5px;
     padding: 10px;
+    background-color: $primary-light;
   }
 
   .book-cover {
     border-radius: 5px;
+    object-fit: none;
   }
 
   .book-info > div {
@@ -165,4 +168,12 @@ body, html {
   .main-btn:hover {
     background-color: $accent-2;
     color: $accent-1;
+  }
+
+  .filter-list {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
