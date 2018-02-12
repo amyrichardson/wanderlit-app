@@ -48,7 +48,7 @@ router.post('/register', (req, res, next) => {
 router.post('/login', userStrategy.authenticate('local'), (req, res) => {
   console.log('req.user: ', req.user);
   res.send(req.user);
-});
+  });
 
 // clear all server session information about this user
 router.get('/logout', (req, res) => {

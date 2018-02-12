@@ -110,3 +110,15 @@ body, html {
     color: $primary-light;
   }
   
+
+  // Continent-Overview
+
+  .continent-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .continent-info {
+    padding: 20px;
+  }

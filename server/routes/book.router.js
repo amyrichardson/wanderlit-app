@@ -48,5 +48,32 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         })
 }); //end post
+
+router.get('/continent/:id', (req, res) => {
+    console.log('in books router', req.params);
+    
+    const query = 'SELECT * FROM books WHERE continent = $1'
+    pool.query(query, [req.params.id])
+        .then((result) => {
+            console.log('result: ', result);
+            res.send(result)
+        })
+        .catch((error) => {
+            console.log('error: ', error);
+            
+        })
+})
+
+router.get('/', (req, res) => {
+    const query = 'SELECT * FROM books'
+    pool.query(query)
+        .then((result) => {
+            res.send(result)
+        })
+        .catch((error) => {
+            console.log('error: ', error);
+            
+        })
+})
  
 module.exports = router;

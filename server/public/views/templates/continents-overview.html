@@ -1,3 +1,28 @@
 <header ng-include="'/views/partials/admin-header.html'"></header>
 
-<h1>in continents overview</h1>
+<!-- Overview section -->
+<div>
+    <h3>Overview of Books</h3>
+    <div class="continent-container">
+        <div class="continent-info" ng-repeat="continent in vm.continents.list">
+            <p>{{continent.name}}</p>
+            <p>Books: #</p> 
+        </div>
+    </div>
+</div>
+
+<!-- Manage books section -->
+<div>
+    <select ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
+        <option value="">Select a continent</option>
+    </select>
+    <button ng-click="vm.getContinentBooks(vm.selectedContinent)">Manage Books</button>
+
+    <div ng-repeat="book in vm.books.list">
+        <img ng-src="{{book.cover_url}}" alt="">
+        <h5>{{book.title}}</h5>
+        <p>{{book.author}}</p>
+        <p>{{book.average_rating}}</p>
+        <p>{{book.year_published}}</p>
+    </div>
+</div>

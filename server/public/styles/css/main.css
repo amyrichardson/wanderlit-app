@@ -77,4 +77,12 @@ li a {
 li a:hover {
   color: #ECEBF0; }
 
+.continent-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.continent-info {
+  padding: 20px; }
+
 /*# sourceMappingURL=main.css.map */

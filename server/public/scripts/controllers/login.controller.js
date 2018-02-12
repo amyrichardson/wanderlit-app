@@ -24,7 +24,6 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
                 //if user is an admin
                 $location.path('/continents-overview');
               }
-              
             } else {
               console.log('failure error: ', response);
               self.message = "Incorrect credentials. Please try again.";

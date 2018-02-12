@@ -8,6 +8,7 @@ const env = require('dotenv').config();
 // Route includes
 const userRouter = require('./routes/user.router');
 const bookRouter = require('./routes/book.router');
+const continentRouter = require('./routes/continent.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -23,6 +24,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/books', bookRouter);
+app.use('/continents', continentRouter);
 
 // Serve static files
 app.use(express.static('server/public'));

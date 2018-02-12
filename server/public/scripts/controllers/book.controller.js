@@ -1,35 +1,17 @@
-myApp.controller('BookController', ['UserService', 'BookService', function(UserService, BookService) {
+myApp.controller('BookController', ['UserService', 'BookService', 'ContinentService', function(UserService, BookService, ContinentService) {
     console.log('BookController created');
     var self = this;
     self.userService = UserService;
+    
+    
     self.bookService = BookService;
     self.goodreadsBooks = BookService.goodreadsBooks; 
-    self.continents = [
-        {
-            name: 'Africa',
-            id: 1
-        },
-        {
-            name: 'Asia',
-            id: 2
-        },
-        {
-            name: 'Australia',
-            id: 3
-        },
-        {
-            name: 'Europe',
-            id: 4
-        },
-        {
-            name: 'North America',
-            id: 5
-        },
-        {
-            name: 'South America',
-            id: 6
-        }
-    ];
+    self.books = BookService.books;
+
+
+    self.continentService = ContinentService;
+    self.continents = ContinentService.continents;
+    
 
     //sends book search info to BookService
     self.findBooks = function(bookSearch) {
@@ -51,6 +33,15 @@ myApp.controller('BookController', ['UserService', 'BookService', function(UserS
 
         BookService.addBook(bookToAdd);
     } //end addBook
+
+
+    //get books by continent from db
+    // self.getContinentBooks = function(continent) {
+    //     console.log('getting books for: ', continent);
+    //     BookService.getContinentBooks(continent);
+    // } //end getContinentBooks
+
+
     
   }]);
   
