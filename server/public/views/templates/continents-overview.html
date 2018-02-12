@@ -12,23 +12,29 @@
 </div> -->
 
 <!-- Manage books section -->
-<div>
-    <select ng-change="vm.getBooks(vm.selectedContinent)" ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
-        <option value="">Select a continent</option>
-    </select>
+<div class="filter-list">
+    <div>
+        <label>Select a continent: </label>
+        <select ng-change="vm.getBooks(vm.selectedContinent)" ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
+            <option value="">All</option>
+        </select>  
+    </div>
+     <div>
+        <label>Search: </label>
+        <input type="text" id="query" ng-model="query">
+     </div>
+</div>
 
-    <input type="text" id="query" ng-model="query">
 
-    <div class="book-container">
-        <div class="book-info" ng-repeat="book in vm.books.list | filter:query">
-            <img class="book-cover" ng-src="{{book.cover_url}}" alt="" width="125">
-            <div>
-                <h3 class="book-title">{{book.title}}</h3>
-                <p>By {{book.author}}</p>
-                <p>Rating: {{book.average_rating}}</p>
-                <p>Published: {{book.year_published}}</p>
-                <button class="main-btn">Delete</button>
-            </div>
+<div class="book-container">
+    <div class="book-info" ng-repeat="book in vm.books.list | filter:query">
+        <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
+        <div>
+            <h3 class="book-title">{{book.title}}</h3>
+            <p>By {{book.author}}</p>
+            <p>Rating: {{book.average_rating}}</p>
+            <p>Published: {{book.year_published}}</p>
+            <button class="main-btn">Delete</button>
         </div>
     </div>
 </div>

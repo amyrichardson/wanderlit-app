@@ -62,7 +62,7 @@ myApp.service('BookService', ['$http', function($http) {
                 console.log('error getting continent books: ', error);    
             })
         //otherwise, get all books
-        } else {
+        } else if(!continent){
             $http.get('/books').then(function(response) {
                 console.log('response: ', response);
                 self.books.list = response.data.rows;
