@@ -19,5 +19,19 @@ myApp.service('BookService', ['$http', function($http) {
         })
     } //end findBooks
 
+    //sends new book info to server
+    self.addBook = function(bookToAdd) {
+        console.log('in service with: ', bookToAdd);
+        
+        //post bookToAdd to book router
+        $http.post('/books', bookToAdd).then(function(response){
+            console.log('server response to post: ', response);
+            
+        })
+        .catch(function(error){
+            console.log('error on post: ', error);
+        })
+    } //end addBook
+
 
 }]);
