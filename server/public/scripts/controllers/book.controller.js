@@ -4,11 +4,12 @@ myApp.controller('BookController', ['UserService', 'BookService', 'ContinentServ
     self.userService = UserService;
     
     
+    //book lists
     self.bookService = BookService;
     self.goodreadsBooks = BookService.goodreadsBooks; 
     self.books = BookService.books;
 
-
+    //continent list
     self.continentService = ContinentService;
     self.continents = ContinentService.continents;
     
@@ -35,13 +36,12 @@ myApp.controller('BookController', ['UserService', 'BookService', 'ContinentServ
     } //end addBook
 
 
-    //get books by continent from db
-    // self.getContinentBooks = function(continent) {
-    //     console.log('getting books for: ', continent);
-    //     BookService.getContinentBooks(continent);
-    // } //end getContinentBooks
+    //get books from db
+    self.getBooks = function(continent) {
+        console.log('getting books for: ', continent);
+        BookService.getBooks(continent);
+    } //end getBooks
 
 
-    
   }]);
   

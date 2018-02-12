@@ -4,6 +4,8 @@ myApp.service('BookService', ['$http', function($http) {
     var self = this;
     self.goodreadsBooks = { list: [] };
     self.books = { list: [] };
+    self.continentBooks = { list: [] };
+
     //makes http get request to Goodreads API, sends data back to BookController
     self.findBooks = function(bookSearch) {
         console.log('hello from bookservice find books', bookSearch); 
@@ -34,31 +36,31 @@ myApp.service('BookService', ['$http', function($http) {
         })
     } //end addBook
 
-    // get books by continent 
-    // self.getContinentBooks = function(continent) {
-
-    //     console.log('continent in service: ', continent);
-    //     let continentId = continent.id;
-    //     $http.get(`/books/continent/${continentId}`).then(function(response) {
-    //         console.log('response from get continent books:', response);
-    //     })
-    //     .catch(function(error){
-    //         console.log('error getting continent books: ', error);    
-    //     })
-    // }
-
-    //get all books from database
-    self.getBooks = function() {
-        $http.get('/books').then(function(response) {
-            console.log('response: ', response);
+    //get books by continent 
+    self.getBooks = function(continent) {
+        //if a continent was chosen, get books for that continent
+        if(continent) {
+            let continentId = continent.id;
+            $http.get(`/books/continent/${continentId}`).then(function(response) {
+            console.log('response from get continent books:', response);
             self.books.list = response.data.rows;
-        })
-        .catch(function(error) {
-            console.log('error: ', error);
-        })
-        
-    } //end getBooks
+            })
+            .catch(function(error){
+                console.log('error getting continent books: ', error);    
+            })
+        //otherwise, get all books
+        } else {
+            $http.get('/books').then(function(response) {
+                console.log('response: ', response);
+                self.books.list = response.data.rows;
+            })
+            .catch(function(error) {
+                console.log('error: ', error);
+            })
+        }        
+    }
 
+    //on load
     self.getBooks();
 
 }]);

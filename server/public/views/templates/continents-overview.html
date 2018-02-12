@@ -13,12 +13,13 @@
 
 <!-- Manage books section -->
 <div>
-    <select ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
+    <select ng-change="vm.getBooks(vm.selectedContinent)" ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
         <option value="">Select a continent</option>
     </select>
-    <button ng-click="vm.getContinentBooks(vm.selectedContinent)">Manage Books</button>
 
-    <div ng-repeat="book in vm.books.list">
+    <input type="text" id="query" ng-model="query">
+
+    <div ng-repeat="book in vm.books.list | filter:query">
         <img ng-src="{{book.cover_url}}" alt="">
         <h5>{{book.title}}</h5>
         <p>{{book.author}}</p>
