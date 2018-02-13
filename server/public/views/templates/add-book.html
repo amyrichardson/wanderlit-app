@@ -17,7 +17,7 @@
         <p>Published: {{book.original_publication_year._text}}</p>
         <p>Rating: {{book.average_rating._text}}</p>
 
-        <select ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents"></select>
-        <button ng-click="vm.addBook(book, vm.selectedContinent)">Add Book</button>
+        <select ng-model="book.selectedContinent" ng-options="continent.name for continent in vm.continents"></select>
+        <button ng-click="vm.addBook(book, book.selectedContinent)">Add Book</button>
     </div>
 </div>
