@@ -46,7 +46,20 @@ myApp.service('BookService', ['$http', function($http) {
         .catch(function(error){
             console.log('get continents error: ', error);
         })
-    }
+    } //end getContinents
+
+    //delete book from db
+    self.deleteBook = function(bookId) {
+        console.log('deleting book service', bookId);
+        
+        $http.delete(`/books/${bookId}`).then(function(response) {
+            console.log('delete response: ', response);
+            self.getBooks();
+        })
+        .catch(function(error){
+            console.log('delete error:', error);
+        })
+    }//end delete book
   
 
     //get books by continent 

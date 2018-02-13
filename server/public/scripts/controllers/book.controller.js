@@ -41,6 +41,10 @@ myApp.controller('BookController', ['UserService', 'BookService', function(UserS
         BookService.getBooks(continent);
     } //end getBooks
 
+    self.deleteBook = function(bookId) {
+        console.log('deleting book', bookId);
+        BookService.deleteBook(bookId);
+    }
 
   }]);
   

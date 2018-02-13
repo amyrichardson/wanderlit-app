@@ -49,6 +49,7 @@ router.post('/', (req, res) => {
         })
 }); //end post
 
+//get books by continent
 router.get('/continent/:id', (req, res) => {
     console.log('in books router', req.params);
         const query = 'SELECT * FROM books WHERE continent = $1'
@@ -63,6 +64,7 @@ router.get('/continent/:id', (req, res) => {
         })
     })
 
+//get all books
 router.get('/', (req, res) => {
     const query = 'SELECT * FROM books'
         pool.query(query)
@@ -73,6 +75,22 @@ router.get('/', (req, res) => {
             console.log('error: ', error);
             
         })
+})
+
+//delete book by id
+router.delete('/:bookId', (req, res) => {
+    const query = 'DELETE FROM users_books WHERE book_id = $1'
+    pool.query(query, [req.params.bookId])
+    .then((result) => {
+        const query = 'DELETE FROM books WHERE id = $1'
+        pool.query(query, [req.params.bookId])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+    })
+    .catch((error) => {
+        res.sendStatus(500);
+    })
 })
  
 module.exports = router;
