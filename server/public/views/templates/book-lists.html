@@ -10,6 +10,7 @@
             <img ng-src="{{book.cover_url}}" alt="">
             <p>{{book.title}}</p>
             <p>By {{book.author}}</p>
+            <p>{{book.continent}}</p>
             <button class="main-btn">Mark Complete</button>
         </div>
     </div>
@@ -17,7 +18,7 @@
     <div>
         <h1>To Read</h1>
         <ul>
-            <li ng-repeat="book in vm.toRead.list">{{book.title}} by {{book.author}} <button class="main-btn">Start Reading</button></li>
+            <li ng-repeat="book in vm.toRead.list">{{book.title}} by {{book.author}} | {{book.continent}} <button class="main-btn">Start Reading</button></li>
         </ul>
     </div>
 

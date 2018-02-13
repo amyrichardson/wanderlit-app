@@ -28,7 +28,7 @@ myApp.controller('BookController', ['UserService', 'BookService', function(UserS
             cover_url: book.best_book.image_url._text,
             average_rating: book.average_rating._text,
             year_published: book.original_publication_year._text,
-            continent: continent.id
+            continent: continent.name
         } //end bookToAdd object
 
         BookService.addBook(bookToAdd);

@@ -50,10 +50,10 @@ router.post('/', (req, res) => {
 }); //end post
 
 //get books by continent
-router.get('/continent/:id', (req, res) => {
+router.get('/continent/:continent', (req, res) => {
     console.log('in books router', req.params);
         const query = 'SELECT * FROM books WHERE continent = $1'
-        pool.query(query, [req.params.id])
+        pool.query(query, [req.params.continent])
         .then((result) => {
             console.log('result: ', result);
             res.send(result)
