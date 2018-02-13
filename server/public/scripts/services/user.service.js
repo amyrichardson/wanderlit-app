@@ -9,6 +9,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
         if(response.data.username) {
             // user has a current session on the server
             self.userObject.userName = response.data.username;
+            self.userObject.id = response.data.id;
             self.userObject.is_admin = response.data.is_admin;
             console.log('UserService -- getuser -- User Data: ', self.userObject);
         } else {
