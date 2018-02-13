@@ -6,6 +6,13 @@ $primary-dark: #1B1C1B;
 $accent-1: #6A7F79;
 $accent-2: #C1CE96;
 
+%book-card {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  background-color: $primary-light;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -132,13 +139,10 @@ body, html {
   }
 
   .book-info {
-    width: 70%;
-    display: flex;
-    margin: 10px;
+    @extend %book-card;
     border: 2px solid $accent-2;
     border-radius: 5px;
-    padding: 10px;
-    background-color: $primary-light;
+    width: 70%;
   }
 
   .book-cover {
@@ -177,3 +181,37 @@ body, html {
     align-items: center;
     justify-content: center;
   }
+
+  .mainlist-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .list-heading {
+    width: 70%;
+    margin: 10px;
+    border-bottom: 2px solid $accent-1;
+    text-align: center;
+  }
+
+  .list-info {
+    @extend %book-card;
+    border: 2px solid $accent-2;
+    border-radius: 5px;
+    width: 80%;
+  }
+
+  .list-info > div {
+    padding-left: 20px;
+  }
+
+.currently-reading {
+  width: 40%;
+}

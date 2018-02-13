@@ -1,31 +1,57 @@
 <header ng-include="'/views/partials/user-header.html'"></header>
 
-<div class="container">
 
-    <h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1>
-
-    <div>
-        <h1>Currently Reading</h1>
-        <div ng-repeat="book in vm.currentlyReading.list">
-            <img ng-src="{{book.cover_url}}" alt="">
-            <p>{{book.title}}</p>
+<!-- <h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1> -->
+<div class="list-container">
+    <div class="list-heading">
+        <h3>Currently Reading</h3>
+    </div>
+    <div class="list-info currently-reading" ng-repeat="book in vm.currentlyReading.list">
+        <div>
+            <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
+        </div>
+        <div>
+            <p class="book-title">{{book.title}}</p>
             <p>By {{book.author}}</p>
             <p>{{book.continent}}</p>
             <button class="main-btn">Mark Complete</button>
         </div>
     </div>
-
-    <div>
-        <h1>To Read</h1>
-        <ul>
-            <li ng-repeat="book in vm.toRead.list">{{book.title}} by {{book.author}} | {{book.continent}} <button class="main-btn">Start Reading</button></li>
-        </ul>
+    
+    
+</div>
+<div class="mainlist-container">
+    <div class="list-container">
+        <div class="list-heading">
+            <h3>To Read</h3>
+        </div>
+        <div class="list-info" ng-repeat="book in vm.toRead.list">
+            <div>
+                <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
+            </div>
+            <div>
+                <p class="book-title">{{book.title}}</p>
+                <p>By {{book.author}}</p>
+                <p>{{book.continent}}</p>
+                <button class="main-btn">Start Reading</button>
+            </div>
+        </div>
     </div>
-
-    <div>
-        <h1>Previously Read</h1>
-        <div ng-repeat="book in vm.previouslyRead.list">
-            {{book}}
+    <div class="list-container">
+        <div class="list-heading">
+            <h3>Previously Read</h3>
+        </div>
+            
+        <div class="list-info" ng-repeat="book in vm.previouslyRead.list">
+            <div>
+                <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
+            </div>
+            <div>
+                <p class="book-title">{{book.title}}</p>
+                <p>By {{book.author}}</p>
+                <p>{{book.continent}}</p>
+                <button class="main-btn">Delete</button>
+            </div>
         </div>
     </div>
 </div>

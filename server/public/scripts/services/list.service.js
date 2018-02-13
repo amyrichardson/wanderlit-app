@@ -12,6 +12,7 @@ myApp.service('ListService', ['$http', function($http) {
         
         $http.post(`/lists/${userId}`, book).then(function(response) {
             console.log('response from adding book to list: ', response);
+            self.getUserLists();
         })
         .catch(function(error) {
             console.log('error adding book to list: ', error);
