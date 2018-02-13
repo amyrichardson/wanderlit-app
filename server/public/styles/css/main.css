@@ -1,3 +1,9 @@
+.book-info, .list-info {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  background-color: #ECEBF0; }
+
 body, html {
   margin: 0;
   padding: 0;
@@ -92,13 +98,9 @@ li a:hover {
   flex-wrap: wrap; }
 
 .book-info {
-  width: 70%;
-  display: flex;
-  margin: 10px;
   border: 2px solid #C1CE96;
   border-radius: 5px;
-  padding: 10px;
-  background-color: #ECEBF0; }
+  width: 70%; }
 
 .book-cover {
   border-radius: 5px;
@@ -130,5 +132,32 @@ li a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center; }
+
+.mainlist-container {
+  display: flex;
+  justify-content: center; }
+
+.list-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.list-heading {
+  width: 70%;
+  margin: 10px;
+  border-bottom: 2px solid #6A7F79;
+  text-align: center; }
+
+.list-info {
+  border: 2px solid #C1CE96;
+  border-radius: 5px;
+  width: 80%; }
+
+.list-info > div {
+  padding-left: 20px; }
+
+.currently-reading {
+  width: 40%; }
 
 /*# sourceMappingURL=main.css.map */
