@@ -1,7 +1,10 @@
 myApp.service('BookService', ['$http', function($http) {
+    console.log('Book Service loaded');
     
     var self = this;
     self.goodreadsBooks = { list: [] };
+    self.books = { list: [] };
+    self.continents = { list: [] };
 
     //makes http get request to Goodreads API, sends data back to BookController
     self.findBooks = function(bookSearch) {
@@ -26,12 +29,66 @@ myApp.service('BookService', ['$http', function($http) {
         //post bookToAdd to book router
         $http.post('/books', bookToAdd).then(function(response){
             console.log('server response to post: ', response);
-            
+            self.getBooks();
         })
         .catch(function(error){
             console.log('error on post: ', error);
         })
     } //end addBook
 
+    //get continents info
+    self.getContinents = function() {
+        $http.get('/continents').then(function(response){
+        console.log('get continents: ', response);
+        self.continents.list = response.data.rows;
+        console.log(self.continents);
+        })
+        .catch(function(error){
+            console.log('get continents error: ', error);
+        })
+    } //end getContinents
+
+    //delete book from db
+    self.deleteBook = function(bookId) {
+        console.log('deleting book service', bookId);
+        
+        $http.delete(`/books/${bookId}`).then(function(response) {
+            console.log('delete response: ', response);
+            self.getBooks();
+        })
+        .catch(function(error){
+            console.log('delete error:', error);
+        })
+    }//end delete book
+  
+
+    //get books by continent 
+    self.getBooks = function(continent) {
+        //if a continent was chosen, get books for that continent
+        if(continent) {
+            let continentId = continent.id;
+            $http.get(`/books/continent/${continentId}`).then(function(response) {
+            console.log('response from get continent books:', response);
+            self.books.list = response.data.rows;
+            })
+            .catch(function(error){
+                console.log('error getting continent books: ', error);    
+            })
+        //otherwise, get all books
+        } else {
+            $http.get('/books').then(function(response) {
+                console.log('response: ', response);
+                self.books.list = response.data.rows;
+            })
+            .catch(function(error) {
+                console.log('error: ', error);
+            })
+        }        
+    }
+
+    //on load
+    self.getContinents();
+    self.getBooks();
+    
 
 }]);

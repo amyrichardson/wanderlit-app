@@ -3,7 +3,7 @@ body, html {
   padding: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  background-color: #ECEBF0;
+  background-color: #C1C0C4;
   color: #1B1C1B; }
 
 .instructions h1 {
@@ -16,7 +16,7 @@ body, html {
   background-color: #6A7F79;
   color: #ECEBF0;
   padding: 5px;
-  border-bottom: 2px solid #C1CE96;
+  border-bottom: 4px solid #C1CE96;
   text-align: center; }
 
 .instructions .container {
@@ -76,5 +76,59 @@ li a {
 
 li a:hover {
   color: #ECEBF0; }
+
+.continent-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.continent-info {
+  padding: 20px; }
+
+.book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+
+.book-info {
+  width: 40%;
+  display: flex;
+  margin: 10px;
+  border: 2px solid #C1CE96;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #ECEBF0; }
+
+.book-cover {
+  border-radius: 5px;
+  object-fit: none; }
+
+.book-info > div {
+  padding-left: 20px; }
+
+.book-title {
+  color: #6A7F79; }
+
+.main-btn {
+  border: 0;
+  outline: 0;
+  background-color: #6A7F79;
+  padding: 5px 15px;
+  font-size: 10pt;
+  cursor: pointer;
+  color: #ECEBF0;
+  border-radius: 5px; }
+
+.main-btn:hover {
+  background-color: #C1CE96;
+  color: #6A7F79; }
+
+.filter-list {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
 
 /*# sourceMappingURL=main.css.map */

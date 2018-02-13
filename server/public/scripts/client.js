@@ -39,7 +39,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/book-search', {
       templateUrl: '/views/templates/book-search.html',
-      controller: 'UserController as vm',
+      controller: 'BookController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
@@ -48,7 +48,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/continents-overview', {
       templateUrl: '/views/templates/continents-overview.html',
-      controller: 'UserController as vm',
+      controller: 'BookController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

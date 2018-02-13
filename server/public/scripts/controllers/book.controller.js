@@ -2,34 +2,16 @@ myApp.controller('BookController', ['UserService', 'BookService', function(UserS
     console.log('BookController created');
     var self = this;
     self.userService = UserService;
+    
+    
+    //book lists
     self.bookService = BookService;
     self.goodreadsBooks = BookService.goodreadsBooks; 
-    self.continents = [
-        {
-            name: 'Africa',
-            id: 1
-        },
-        {
-            name: 'Asia',
-            id: 2
-        },
-        {
-            name: 'Australia',
-            id: 3
-        },
-        {
-            name: 'Europe',
-            id: 4
-        },
-        {
-            name: 'North America',
-            id: 5
-        },
-        {
-            name: 'South America',
-            id: 6
-        }
-    ];
+    self.books = BookService.books;
+
+    //continent list
+    self.continents = BookService.continents;
+    
 
     //sends book search info to BookService
     self.findBooks = function(bookSearch) {
@@ -51,6 +33,18 @@ myApp.controller('BookController', ['UserService', 'BookService', function(UserS
 
         BookService.addBook(bookToAdd);
     } //end addBook
-    
+
+
+    //get books from db
+    self.getBooks = function(continent) {
+        console.log('getting books for: ', continent);
+        BookService.getBooks(continent);
+    } //end getBooks
+
+    self.deleteBook = function(bookId) {
+        console.log('deleting book', bookId);
+        BookService.deleteBook(bookId);
+    }
+
   }]);
   
