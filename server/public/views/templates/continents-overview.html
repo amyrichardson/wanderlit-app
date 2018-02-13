@@ -27,7 +27,7 @@
 
 
 <div class="book-container">
-    <div class="book-info" ng-repeat="book in vm.books.list | filter:query">
+    <div class="book-info" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating' ">
         <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
         <div>
             <h3 class="book-title">{{book.title}}</h3>
