@@ -39,7 +39,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/book-search', {
       templateUrl: '/views/templates/book-search.html',
-      controller: 'BookController as vm',
+      controller: 'UserController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

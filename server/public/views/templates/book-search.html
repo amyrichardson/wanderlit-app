@@ -4,8 +4,8 @@
         <div>
             <label>Select a continent: </label>
             <select ng-change="vm.getBooks(vm.selectedContinent)" ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
-                <option value="">All</option>
-            </select>  
+                    <option value="">All</option>
+            </select>
         </div>
          <div>
             <label>Search: </label>
@@ -22,12 +22,13 @@
                 <p>By {{book.author}}</p>
                 <p>Rating: {{book.average_rating}}</p>
                 <p>Published: {{book.year_published}}</p>
-                <select>
+                <select ng-model="book.status">
+                    <option value="">Select a list</option>
                     <option value="to_read">To Read</option>
                     <option value="currently_reading">Currently Reading</option>
                     <option value="previously_read">Previously Read</option>
                 </select>
-                <button class="main-btn">Add</button>
+                <button ng-click="vm.addBookToList(book)" class="main-btn">Add</button>
             </div>
         </div>
     </div>

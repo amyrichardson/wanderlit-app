@@ -15,7 +15,7 @@ myApp.controller('BookController', ['UserService', 'BookService', function(UserS
 
     //sends book search info to BookService
     self.findBooks = function(bookSearch) {
-        BookService.findBooks(bookSearch);
+        BookService.findBooks(bookSearch)
     } //end findBooks
 
     //creates new book object for book service to send to server
