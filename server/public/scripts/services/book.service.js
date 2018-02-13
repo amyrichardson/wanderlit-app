@@ -29,7 +29,7 @@ myApp.service('BookService', ['$http', function($http) {
         //post bookToAdd to book router
         $http.post('/books', bookToAdd).then(function(response){
             console.log('server response to post: ', response);
-            
+            self.getBooks();
         })
         .catch(function(error){
             console.log('error on post: ', error);
@@ -62,7 +62,7 @@ myApp.service('BookService', ['$http', function($http) {
                 console.log('error getting continent books: ', error);    
             })
         //otherwise, get all books
-        } else if(!continent){
+        } else {
             $http.get('/books').then(function(response) {
                 console.log('response: ', response);
                 self.books.list = response.data.rows;
