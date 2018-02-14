@@ -69,4 +69,17 @@ router.put('/', (req, res) => {
         })
 })
 
+router.delete('/:bookId', (req, res) => {
+    console.log('in list router with: ', req.params);
+    const query = 'DELETE FROM users_books WHERE book_id = $1'
+    pool.query(query, [req.params.bookId])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('error removing book from user list: ', error);
+            res.sendStatus(500);
+        })   
+})
+
 module.exports = router;

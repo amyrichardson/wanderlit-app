@@ -24,7 +24,6 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
 
   //add book to user list
   self.addBookToList = function(book) {
-    console.log('adding book to list', book);
     UserService.addBookToList(book, self.userObject.id);
   } //end addBookToList
 
@@ -34,8 +33,13 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
       bookId: bookId,
       newStatus: newStatus
     }
-    console.log('changing book status: ', bookInfo);
     UserService.changeBookStatus(bookInfo);
   } //end changeBookStatus
+
+  //remove book from users lists
+  self.removeBookFromLists = function(bookId) {
+    console.log('removing book from user list: ', bookId);
+    UserService.removeBookFromLists(bookId);
+  }
 
 }]);
