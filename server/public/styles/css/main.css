@@ -135,10 +135,6 @@ li a:hover {
   align-items: center;
   justify-content: center; }
 
-.mainlist-container {
-  display: flex;
-  justify-content: center; }
-
 .list-container {
   width: 100%;
   display: flex;
@@ -154,13 +150,21 @@ li a:hover {
 .list-info {
   border: 2px solid #C1CE96;
   border-radius: 5px;
-  width: 80%; }
+  width: 30%; }
 
 .list-info > div {
   padding-left: 20px; }
 
 .currently-reading {
-  width: 40%; }
+  width: 50%; }
+
+.to-read {
+  width: 50%; }
+
+.previously-read {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
 
 /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {

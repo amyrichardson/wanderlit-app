@@ -18,15 +18,13 @@
             <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Stop Reading</button>
         </div>
     </div>
-    
-    
 </div>
-<div class="mainlist-container">
-    <div class="list-container">
-        <div class="list-heading">
-            <h3>To Read</h3>
-        </div>
-        <div class="list-info" ng-repeat="book in vm.toRead.list">
+
+<div class="list-container">
+    <div class="list-heading">
+        <h3>To Read</h3>
+    </div>
+        <div class="list-info to-read" ng-repeat="book in vm.toRead.list">
             <div>
                 <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
             </div>
@@ -37,13 +35,14 @@
                 <button ng-click="vm.changeBookStatus(book.book_id, 'currently_reading')" class="main-btn">Start Reading</button>
                 <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button>
             </div>
-        </div>
-    </div>
-    <div class="list-container">
-        <div class="list-heading">
-            <h3>Previously Read</h3>
-        </div>
-            
+        </div> 
+</div>
+
+<div class="list-container">
+    <div class="list-heading">
+        <h3>Previously Read</h3>
+    </div> 
+    <div class="previously-read">   
         <div class="list-info" ng-repeat="book in vm.previouslyRead.list">
             <div>
                 <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
@@ -57,3 +56,4 @@
         </div>
     </div>
 </div>
+
