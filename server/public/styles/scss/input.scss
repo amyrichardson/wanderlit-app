@@ -143,6 +143,11 @@ body, html {
     border: 2px solid $accent-2;
     border-radius: 5px;
     width: 70%;
+    flex-direction: column;
+  }
+
+  .main-info {
+    display: flex;
   }
 
   .book-cover {
@@ -150,12 +155,21 @@ body, html {
     object-fit: none;
   }
 
-  .book-info > div {
+  .main-info > div {
     padding-left: 20px;
+    margin: 10px;
+  }
+
+  .book-action{
+    margin-left: 70%;
   }
 
   .book-title {
     color: $accent-1;
+  }
+
+  .book-description {
+    padding: 10px;
   }
 
   .main-btn {

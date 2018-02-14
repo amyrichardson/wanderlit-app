@@ -13,6 +13,7 @@ myApp.controller('BookController', ['UserService', 'BookService', function(UserS
     self.continents = BookService.continents;
     
 
+    
     //sends book search info to BookService
     self.findBooks = function(bookSearch) {
         BookService.findBooks(bookSearch)

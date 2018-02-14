@@ -100,17 +100,28 @@ li a:hover {
 .book-info {
   border: 2px solid #C1CE96;
   border-radius: 5px;
-  width: 70%; }
+  width: 70%;
+  flex-direction: column; }
+
+.main-info {
+  display: flex; }
 
 .book-cover {
   border-radius: 5px;
   object-fit: none; }
 
-.book-info > div {
-  padding-left: 20px; }
+.main-info > div {
+  padding-left: 20px;
+  margin: 10px; }
+
+.book-action {
+  margin-left: 70%; }
 
 .book-title {
   color: #6A7F79; }
+
+.book-description {
+  padding: 10px; }
 
 .main-btn {
   border: 0;

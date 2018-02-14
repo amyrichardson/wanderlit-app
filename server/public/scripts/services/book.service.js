@@ -2,6 +2,8 @@ myApp.service('BookService', ['$http', function($http) {
     console.log('Book Service loaded');
     
     var self = this;
+
+
     self.goodreadsBooks = { list: [] };
     self.books = { list: [] };
     self.continents = { list: [
@@ -20,15 +22,43 @@ myApp.service('BookService', ['$http', function($http) {
 
         $http.get(`/books/${bookSearch}`).then(function(response) {
             console.log('server response: ', response);
-            self.goodreadsBooks.list = response.data.GoodreadsResponse.search.results.work;
-            console.log('book list: ', self.goodreadsBooks.list);
-             
+            let books = response.data.GoodreadsResponse.search.results.work;
+            console.log('book list: ', books);
+            self.getBookDescriptions(books);          
         })
         .catch(function(error) {
             console.log('error: ', error);
             
         })
     } //end findBooks
+
+    self.getBookDescriptions = function(books) {
+        console.log('getting book descriptions: ', books);
+        for (let i = 0; i < books.length; i++) {
+            let book = books[i];
+            console.log('book: ', book);
+            $http.get(`/description/${book.best_book.id._text}`).then(function(response){
+                console.log('book description response: ', response);
+                book.description = response.data.GoodreadsResponse.book.description._cdata;
+            })
+            .catch(function(error){
+                console.log('book description error', error);
+            })
+        }
+        self.goodreadsBooks.list = books;
+    }
+
+    // self.getBookDescription = function(bookId) {
+    //     console.log('getting book description: ', bookId);
+    //     $http.get(`/description/${bookId}`).then(function(response){
+    //             console.log('book description response: ', response);
+    //         })
+    //         .catch(function(error){
+    //             console.log('book description error', error);
+    //         })
+    // }
+
+    // self.getBookDescription(1);
 
     //sends new book info to server
     self.addBook = function(bookToAdd) {
