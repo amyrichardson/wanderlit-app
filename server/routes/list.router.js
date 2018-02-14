@@ -56,4 +56,30 @@ router.get('/:userId', (req,res) => {
         })
 })
 
+router.put('/', (req, res) => {
+    console.log('in list router with: ', req.body);
+    const query = 'UPDATE users_books SET status = $1 WHERE book_id = $2'
+    pool.query(query, [req.body.newStatus, req.body.bookId])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('error updating user books', error);
+            res.sendStatus(500);
+        })
+})
+
+router.delete('/:bookId', (req, res) => {
+    console.log('in list router with: ', req.params);
+    const query = 'DELETE FROM users_books WHERE book_id = $1'
+    pool.query(query, [req.params.bookId])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('error removing book from user list: ', error);
+            res.sendStatus(500);
+        })   
+})
+
 module.exports = router;

@@ -14,7 +14,8 @@
             <p class="book-title">{{book.title}}</p>
             <p>By {{book.author}}</p>
             <p>{{book.continent}}</p>
-            <button class="main-btn">Mark Complete</button>
+            <button ng-click="vm.changeBookStatus(book.book_id, 'previously_read')" class="main-btn">Mark Complete</button>
+            <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Stop Reading</button>
         </div>
     </div>
     
@@ -33,7 +34,8 @@
                 <p class="book-title">{{book.title}}</p>
                 <p>By {{book.author}}</p>
                 <p>{{book.continent}}</p>
-                <button class="main-btn">Start Reading</button>
+                <button ng-click="vm.changeBookStatus(book.book_id, 'currently_reading')" class="main-btn">Start Reading</button>
+                <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button>
             </div>
         </div>
     </div>
@@ -50,7 +52,7 @@
                 <p class="book-title">{{book.title}}</p>
                 <p>By {{book.author}}</p>
                 <p>{{book.continent}}</p>
-                <button class="main-btn">Delete</button>
+                <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button>
             </div>
         </div>
     </div>
