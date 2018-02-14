@@ -90,6 +90,7 @@ li a:hover {
 .book-info {
   border: 2px solid #C1CE96;
   border-radius: 5px;
+  width: 90%;
   flex-direction: column; }
 
 .main-info {

@@ -68,4 +68,19 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
           
       })
   } //end addBookToList
+
+
+  //change book status
+  self.changeBookStatus = function(bookInfo) {
+    console.log('changing book status in service: ', bookInfo);
+    $http.put('/lists', bookInfo).then(function(response){
+      console.log('response from changing book status:', response);
+      self.getUserLists(self.userObject.id);
+      
+    })
+    .catch(function(error){
+      console.log('error changing book status: ', error);
+    })
+  } //end changeBookStatus
+
 }]);

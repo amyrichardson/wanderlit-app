@@ -28,4 +28,14 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
     UserService.addBookToList(book, self.userObject.id);
   } //end addBookToList
 
+  //change books status given id and new status
+  self.changeBookStatus = function(bookId, newStatus) {
+    let bookInfo = {
+      bookId: bookId,
+      newStatus: newStatus
+    }
+    console.log('changing book status: ', bookInfo);
+    UserService.changeBookStatus(bookInfo);
+  } //end changeBookStatus
+
 }]);
