@@ -12,7 +12,7 @@ router.get('/:search', (req, res) => {
     let url = 'https://www.goodreads.com/search/index.xml'
         let config = {
             params: {
-                key: 'OHtX0PJH8qIwgMvihQfpxw',
+                key: process.env.API_KEY,
                 q: req.params.search,
                 page: 1,
                 search: 'all'

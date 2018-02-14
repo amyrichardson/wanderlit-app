@@ -34,7 +34,14 @@ myApp.controller('BookController', ['UserService', 'BookService', function(UserS
         } //end bookToAdd object
 
         BookService.addBook(bookToAdd);
+        self.addBookSnackbar();
     } //end addBook
+
+    self.addBookSnackbar = function() {
+        var x = document.getElementById('snackbar');
+        x.className = 'show';
+        setTimeout(function(){ x.className = x.className.replace('show', '');}, 3000);
+      }
 
 
     //get books from db

@@ -18,12 +18,8 @@ myApp.service('BookService', ['$http', function($http) {
 
     //makes http get request to Goodreads API, sends data back to BookController
     self.findBooks = function(bookSearch) {
-        console.log('hello from bookservice find books', bookSearch); 
-
         $http.get(`/books/${bookSearch}`).then(function(response) {
-            console.log('server response: ', response);
             let books = response.data.GoodreadsResponse.search.results.work;
-            console.log('book list: ', books);
             self.goodreadsBooks.list = self.getBookDescriptions(books);          
         })
         .catch(function(error) {
@@ -32,13 +28,11 @@ myApp.service('BookService', ['$http', function($http) {
         })
     } //end findBooks
 
+    //get book descriptions
     self.getBookDescriptions = function(books) {
-        console.log('getting book descriptions: ', books);
         for (let i = 0; i < books.length; i++) {
             let book = books[i];
-            console.log('book: ', book);
             $http.get(`/description/${book.best_book.id._text}`).then(function(response){
-                console.log('book description response: ', response);
                 book.description = response.data.GoodreadsResponse.book.description._cdata;
             })
             .catch(function(error){
@@ -48,25 +42,10 @@ myApp.service('BookService', ['$http', function($http) {
         return books;
     }
 
-    // self.getBookDescription = function(bookId) {
-    //     console.log('getting book description: ', bookId);
-    //     $http.get(`/description/${bookId}`).then(function(response){
-    //             console.log('book description response: ', response);
-    //         })
-    //         .catch(function(error){
-    //             console.log('book description error', error);
-    //         })
-    // }
-
-    // self.getBookDescription(1);
-
     //sends new book info to server
-    self.addBook = function(bookToAdd) {
-        console.log('in service with: ', bookToAdd);
-        
+    self.addBook = function(bookToAdd) {        
         //post bookToAdd to book router
         $http.post('/books', bookToAdd).then(function(response){
-            console.log('server response to post: ', response);
             self.getBooks();
         })
         .catch(function(error){
@@ -76,11 +55,8 @@ myApp.service('BookService', ['$http', function($http) {
 
 
     //delete book from db
-    self.deleteBook = function(bookId) {
-        console.log('deleting book service', bookId);
-        
+    self.deleteBook = function(bookId) {        
         $http.delete(`/books/${bookId}`).then(function(response) {
-            console.log('delete response: ', response);
             self.getBooks();
         })
         .catch(function(error){
@@ -94,7 +70,6 @@ myApp.service('BookService', ['$http', function($http) {
         //if a continent was chosen, get books for that continent
         if(continent) {
             $http.get(`/books/continent/${continent.name}`).then(function(response) {
-            console.log('response from get continent books:', response);
             self.books.list = response.data.rows;
             })
             .catch(function(error){
@@ -103,7 +78,6 @@ myApp.service('BookService', ['$http', function($http) {
         //otherwise, get all books
         } else {
             $http.get('/books').then(function(response) {
-                console.log('response: ', response);
                 self.books.list = response.data.rows;
             })
             .catch(function(error) {
