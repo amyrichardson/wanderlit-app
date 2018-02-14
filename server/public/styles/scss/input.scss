@@ -133,6 +133,7 @@ body, html {
   .book-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .book-info {
@@ -141,6 +142,15 @@ body, html {
     border-radius: 5px;
     width: 90%;
     flex-direction: column;
+  }
+
+  .book-details {
+    display: flex;
+    width: 400px;
+  }
+
+  .book-details > div {
+    padding: 0px 20px;
   }
 
   .main-info {
@@ -153,21 +163,23 @@ body, html {
     margin-top: 20px;
   }
 
-  .main-info > div {
-    padding: 0px 20px;
-  }
-
-  .book-action{
+  .book-action {
     margin-left: 85%;
   }
+
 
   .book-title {
     color: $accent-1;
   }
 
   .book-description {
-    font-size: 8pt;
     width: 60%;
+    display: flex;
+    align-items: center;
+  }
+
+  .book-description > p {
+    font-size: 8pt;
   }
 
   .main-btn {

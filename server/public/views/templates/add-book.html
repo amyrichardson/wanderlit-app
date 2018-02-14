@@ -14,17 +14,18 @@
 <div class="book-container" ng-repeat="book in vm.goodreadsBooks.list">
     <div class="book-info">
         <div class="main-info">
-            <div>
-                <img class="book-cover" ng-src="{{book.best_book.image_url._text}}" alt="">
-            </div>
-            <div>
-                <h3 class="book-title">{{book.best_book.title._text}}</h3>
-                <p>Author: {{book.best_book.author.name._text}}</p>
-                <p>Published: {{book.original_publication_year._text}}</p>
-                <p>Rating: {{book.average_rating._text}}</p>
+            <div class="book-details">
+                <div>
+                    <img class="book-cover" ng-src="{{book.best_book.image_url._text}}" alt="">
+                </div>
+                <div>
+                    <h3 class="book-title">{{book.best_book.title._text}}</h3>
+                    <p>Author: {{book.best_book.author.name._text}}</p>
+                    <p>Published: {{book.original_publication_year._text}}</p>
+                    <p>Rating: {{book.average_rating._text}}</p>
+                </div>
             </div>
             <div class="book-description">
-                <h4>Description</h4>
                 <p>{{book.description}}</p>
             </div>
         </div>
