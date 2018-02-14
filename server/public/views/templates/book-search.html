@@ -16,13 +16,23 @@
     
     <div class="book-container">
         <div class="book-info" ng-repeat="book in vm.books.list | filter:query">
-            <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
-            <div>
-                <h3 class="book-title">{{book.title}}</h3>
-                <p>By {{book.author}}</p>
-                <p>Rating: {{book.average_rating}}</p>
-                <p>Published: {{book.year_published}}</p>
-                <p>{{book.continent}}</p>
+            <div class="main-info">
+                <div>
+                    <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
+                </div>
+                <div>
+                    <h3 class="book-title">{{book.title}}</h3>
+                    <p>By {{book.author}}</p>
+                    <p>Rating: {{book.average_rating}}</p>
+                    <p>Published: {{book.year_published}}</p>
+                    <p>{{book.continent}}</p>
+                </div>
+                <div class="book-description">
+                    <h4>Description</h4>
+                    <p>{{book.description}}</p>
+                </div>
+            </div>
+            <div class="book-action">
                 <select ng-model="book.status">
                     <option value="">Select a list</option>
                     <option value="to_read">To Read</option>

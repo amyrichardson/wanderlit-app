@@ -94,7 +94,6 @@ body, html {
     margin-left: 10px;
   }
   
-  
   ul {
     list-style-type: none;
     margin: 0;
@@ -121,20 +120,18 @@ body, html {
 
   // Continent-Overview
 
-  .continent-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  // .continent-container {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  // }
 
-  .continent-info {
-    padding: 20px;
-  }
+  // .continent-info {
+  //   padding: 20px;
+  // }
 
   .book-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
   }
 
@@ -142,7 +139,6 @@ body, html {
     @extend %book-card;
     border: 2px solid $accent-2;
     border-radius: 5px;
-    width: 70%;
     flex-direction: column;
   }
 
@@ -153,15 +149,15 @@ body, html {
   .book-cover {
     border-radius: 5px;
     object-fit: none;
+    margin-top: 20px;
   }
 
   .main-info > div {
-    padding-left: 20px;
-    margin: 10px;
+    padding: 0px 20px;
   }
 
   .book-action{
-    margin-left: 70%;
+    margin-left: 85%;
   }
 
   .book-title {
@@ -169,7 +165,8 @@ body, html {
   }
 
   .book-description {
-    padding: 10px;
+    font-size: 8pt;
+    width: 60%;
   }
 
   .main-btn {

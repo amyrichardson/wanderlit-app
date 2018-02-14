@@ -37,9 +37,9 @@ router.post('/', (req, res) => {
     console.log('in books router', req.body);
     let bookToAdd = req.body;
     // insert new book info in database
-    const query = `INSERT INTO books (title, author, continent, cover_url, average_rating, year_published)
-    VALUES ($1, $2, $3, $4, $5, $6)`
-    pool.query(query, [bookToAdd.title, bookToAdd.author, bookToAdd.continent, bookToAdd.cover_url, bookToAdd.average_rating, bookToAdd.year_published])
+    const query = `INSERT INTO books (title, author, continent, cover_url, average_rating, year_published, description)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)`
+    pool.query(query, [bookToAdd.title, bookToAdd.author, bookToAdd.continent, bookToAdd.cover_url, bookToAdd.average_rating, bookToAdd.year_published, bookToAdd.description])
         .then((result) => {
             console.log('result: ', result);
             res.sendStatus(200);
