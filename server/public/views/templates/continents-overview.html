@@ -26,15 +26,25 @@
 </div>
 
 
-<div class="book-container">
-    <div class="book-info" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating' ">
-        <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
-        <div>
-            <h3 class="book-title">{{book.title}}</h3>
-            <p>By {{book.author}}</p>
-            <p>Rating: {{book.average_rating}}</p>
-            <p>Published: {{book.year_published}}</p>
-            <p>{{book.continent}}</p>
+<div class="book-container" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating' ">
+    <div class="book-info">
+        <div class="main-info">
+            <div>
+                <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
+            </div>
+            <div>
+                <h3 class="book-title">{{book.title}}</h3>
+                <p>By {{book.author}}</p>
+                <p>Rating: {{book.average_rating}}</p>
+                <p>Published: {{book.year_published}}</p>
+                <p>{{book.continent}}</p>
+            </div>
+            <div class="book-description">
+                <h4>Description</h4>
+                <p>{{book.description}}</p>
+            </div>
+        </div>
+        <div class="book-action">
             <button ng-click="vm.deleteBook(book.id)" class="main-btn">Delete</button>
         </div>
     </div>

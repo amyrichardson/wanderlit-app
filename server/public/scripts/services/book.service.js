@@ -24,7 +24,7 @@ myApp.service('BookService', ['$http', function($http) {
             console.log('server response: ', response);
             let books = response.data.GoodreadsResponse.search.results.work;
             console.log('book list: ', books);
-            self.getBookDescriptions(books);          
+            self.goodreadsBooks.list = self.getBookDescriptions(books);          
         })
         .catch(function(error) {
             console.log('error: ', error);
@@ -45,7 +45,7 @@ myApp.service('BookService', ['$http', function($http) {
                 console.log('book description error', error);
             })
         }
-        self.goodreadsBooks.list = books;
+        return books;
     }
 
     // self.getBookDescription = function(bookId) {

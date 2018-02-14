@@ -83,24 +83,13 @@ li a {
 li a:hover {
   color: #ECEBF0; }
 
-.continent-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
-
-.continent-info {
-  padding: 20px; }
-
 .book-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap; }
 
 .book-info {
   border: 2px solid #C1CE96;
   border-radius: 5px;
-  width: 70%;
   flex-direction: column; }
 
 .main-info {
@@ -108,20 +97,21 @@ li a:hover {
 
 .book-cover {
   border-radius: 5px;
-  object-fit: none; }
+  object-fit: none;
+  margin-top: 20px; }
 
 .main-info > div {
-  padding-left: 20px;
-  margin: 10px; }
+  padding: 0px 20px; }
 
 .book-action {
-  margin-left: 70%; }
+  margin-left: 85%; }
 
 .book-title {
   color: #6A7F79; }
 
 .book-description {
-  padding: 10px; }
+  font-size: 8pt;
+  width: 60%; }
 
 .main-btn {
   border: 0;
