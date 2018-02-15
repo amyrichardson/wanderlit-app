@@ -1,4 +1,12 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'chart.js']);
+
+myApp.config(['ChartJsProvider', function (ChartJsProvider) {
+  // Configure all charts
+  ChartJsProvider.setOptions({
+    chartColors: ['#ACE8CD', '#5AAB94', '#C9ED67', '#9C9582', '#524A36', '#88A146'],
+    responsive: true
+  });
+}]);
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -67,4 +75,5 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     .otherwise({
       template: '<h1>404</h1>'
     });
+
 }]);

@@ -1,10 +1,11 @@
 $font-display: 'Satisfy', cursive;
 $font-body: 'Open Sans', sans-serif;
-$primary-light: #ECEBF0;
-$primary-medium: #C1C0C4;
+$primary-light: #F8F7FC;
+$primary-medium: #ECEBF0;
 $primary-dark: #1B1C1B;
-$accent-1: #6A7F79;
-$accent-2: #C1CE96;
+$accent-1: #5AAB94;
+$accent-2: #C9ED67;
+$accent-3: #524A36;
 
 %book-card {
   display: flex;
@@ -31,7 +32,7 @@ body, html {
   
   .instructions {
     background-color: $accent-1;
-    color: $primary-light;
+    color: $primary-medium;
     padding: 5px;
     border-bottom: 4px solid $accent-2;
     text-align: center;
@@ -44,7 +45,7 @@ body, html {
   }
   
   .header-link a {
-    color: $primary-light;
+    color: $primary-medium;
     text-decoration: none;
     padding: 5px;
   }
@@ -114,7 +115,7 @@ body, html {
   }
   
   li a:hover {
-    color: $primary-light;
+    color: $primary-medium;
   }
   
 
@@ -293,4 +294,31 @@ However, delay the fade out process for 2.5 seconds */
 @keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+.chart-container{
+  background-color: $primary-light;
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid $accent-2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.chart-container > h1 {
+  width: 50%;
+  margin: 0 auto;
+  border-bottom: 2px solid $accent-1;
+  padding: 10px;
+}
+
+.chart-pie {
+  padding: 20px;
+}
+
+.continent-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 80px;
 }

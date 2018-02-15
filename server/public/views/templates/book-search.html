@@ -17,7 +17,7 @@
     
     
     <div class="book-container">
-        <div class="book-info" ng-repeat="book in vm.books.list | filter:query">
+        <div class="book-info" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating'">
             <div class="main-info">
                 <div class="book-details">
                     <div>

@@ -16,6 +16,9 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
   self.currentlyReading = UserService.currentlyReading;
   self.previouslyRead = UserService.previouslyRead;
   
+  //labels and data for pie chart
+  self.labels = ['Africa', 'Asia', 'Australia', 'Europe', 'North America', 'South America'];
+  self.data = [2, 4, 1, 6, 18, 3];
 
   //get books from database
   self.getBooks = function(continent) {
