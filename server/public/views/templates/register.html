@@ -5,14 +5,12 @@
   <h1 class="lead alert alert-danger" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
   <form ng-submit="vm.registerUser()">
     <div>
-        <label for="username">Username:</label>
-        <input type="text" ng-model="vm.user.username" />
+        <input type="text" ng-model="vm.user.username" placeholder="Username"/>
     </div>
     <div>
-        <label for="password">Password:</label>
-        <input type="password" ng-model="vm.user.password" />
+        <input type="password" ng-model="vm.user.password" placeholder="Password"/>
     </div>
-    <input class="btn btn-default" type="submit" name="submit" value="Register" />
+    <button class="main-btn" type="submit">Register</button>
     <a href="#!home">Cancel</a>
   </form>
 

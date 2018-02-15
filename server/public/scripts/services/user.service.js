@@ -40,6 +40,8 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
 
     //gets all user books from lists
     self.getUserLists = function(userId) {      
+      //set bookCount back to 0 for each continent
+      self.bookCount.count = [0, 0, 0, 0, 0, 0];
       $http.get(`/lists/${userId}`).then(function(response) {
           self.toRead.list = response.data.to_read;
           self.currentlyReading.list = response.data.currently_reading;
@@ -103,10 +105,8 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
       } else if(book.continent === 'South America') {
         self.bookCount.count[5]++;
       }
-      
-    }
+    }// end loop
     console.log('book count after loop:', self.bookCount);
-    
 
     self.getTotalBooks();
   } //end getTotalBooks
