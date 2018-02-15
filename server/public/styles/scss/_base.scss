@@ -1,0 +1,25 @@
+// Main page styles
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: $font-body;
+    font-size: 10pt;
+    background-color: $primary-medium;
+    color: $primary-dark;
+}
+
+.main-btn {
+    border: 0;
+    outline: 0;
+    background-color: $accent-1;
+    padding: 5px 15px;
+    font-size: 10pt;
+    cursor: pointer;
+    color: $primary-light;
+    border-radius: 5px;
+}
+
+.main-btn:hover {
+    background-color: $accent-2;
+    color: $accent-1;
+}

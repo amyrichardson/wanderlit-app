@@ -56,12 +56,25 @@ myApp.service('BookService', ['$http', function($http) {
 
     //delete book from db
     self.deleteBook = function(bookId) {        
-        $http.delete(`/books/${bookId}`).then(function(response) {
-            self.getBooks();
-        })
-        .catch(function(error){
-            console.log('delete error:', error);
-        })
+        swal({
+            text: "Are you sure you want to delete this book?",
+            icon: "warning",
+            buttons: ['Nevermind', 'Yes, delete it'],
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                $http.delete(`/books/${bookId}`).then(function(response) {
+                    swal("The book was deleted.");
+                    self.getBooks();
+                })
+                .catch(function(error){
+                    console.log('delete error:', error);
+                })
+            } else {
+              swal("Great! The book is safe.");
+            }
+          });
     }//end delete book
   
 

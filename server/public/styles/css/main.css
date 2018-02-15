@@ -1,9 +1,3 @@
-.book-info, .list-info {
-  display: flex;
-  margin: 10px;
-  padding: 10px;
-  background-color: #F8F7FC; }
-
 body, html {
   margin: 0;
   padding: 0;
@@ -12,38 +6,34 @@ body, html {
   background-color: #ECEBF0;
   color: #1B1C1B; }
 
-select {
-  outline: 0;
-  font-size: 10pt;
-  border: 1px solid #F8F7FC;
-  background-color: #C9ED67;
-  color: #5AAB94;
-  margin: 10px 0px; }
-
-input {
-  outline: 0;
+.main-btn {
   border: 0;
-  padding: 5px;
+  outline: 0;
+  background-color: #5AAB94;
+  padding: 5px 15px;
   font-size: 10pt;
-  width: 250px;
-  border-bottom: 2px solid #5AAB94;
-  background-color: #ECEBF0;
-  margin: 10px 0px; }
+  cursor: pointer;
+  color: #F8F7FC;
+  border-radius: 5px; }
 
-.instructions h1 {
+.main-btn:hover {
+  background-color: #C9ED67;
+  color: #5AAB94; }
+
+.header h1 {
   font-family: "Satisfy", cursive;
   font-size: 72px;
   line-height: 0;
   font-weight: lighter; }
 
-.instructions {
+.header {
   background-color: #5AAB94;
   color: #ECEBF0;
   padding: 5px;
   border-bottom: 4px solid #C9ED67;
   text-align: center; }
 
-.instructions .container {
+.header .container {
   display: flex;
   justify-content: space-between;
   align-items: baseline; }
@@ -64,24 +54,6 @@ input {
 .header-btn:hover {
   color: #C9ED67; }
 
-#entryForm {
-  margin-top: 14px; }
-
-#container {
-  margin-top: 10px; }
-
-.container p {
-  margin-top: 14px; }
-
-.message {
-  padding: 10px 0; }
-
-.message p {
-  margin-left: 10px; }
-
-.btn-danger {
-  margin-left: 10px; }
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -100,6 +72,37 @@ li a {
 
 li a:hover {
   color: #ECEBF0; }
+
+select {
+  outline: 0;
+  font-size: 10pt;
+  border: 1px solid #F8F7FC;
+  background-color: #C9ED67;
+  color: #5AAB94;
+  margin: 10px 0px; }
+
+input {
+  outline: 0;
+  border: 0;
+  padding: 5px;
+  font-size: 10pt;
+  width: 250px;
+  border-bottom: 2px solid #5AAB94;
+  background-color: #ECEBF0;
+  margin: 10px 0px; }
+
+.filter-list {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.book-info, .list-info {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  background-color: #F8F7FC; }
 
 .book-container {
   display: flex;
@@ -141,27 +144,6 @@ li a:hover {
 .book-description > p {
   font-size: 8pt; }
 
-.main-btn {
-  border: 0;
-  outline: 0;
-  background-color: #5AAB94;
-  padding: 5px 15px;
-  font-size: 10pt;
-  cursor: pointer;
-  color: #F8F7FC;
-  border-radius: 5px; }
-
-.main-btn:hover {
-  background-color: #C9ED67;
-  color: #5AAB94; }
-
-.filter-list {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
-
 .list-container {
   width: 100%;
   display: flex;
@@ -193,43 +175,27 @@ li a:hover {
   flex-wrap: wrap;
   justify-content: center; }
 
-/* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
   visibility: hidden;
-  /* Hidden by default. Visible on click */
   min-width: 250px;
-  /* Set a default minimum width */
   margin-left: -125px;
-  /* Divide value of min-width by 2 */
   background-color: #5AAB94;
-  /* Black background color */
   color: #F8F7FC;
-  /* White text color */
   text-align: center;
-  /* Centered text */
   border-radius: 2px;
-  /* Rounded borders */
   padding: 10px;
-  /* Padding */
   position: fixed;
-  /* Sit on top of the screen */
   z-index: 1;
-  /* Add a z-index if needed */
   left: 50%;
-  /* Center the snackbar */
-  bottom: 30px;
-  /* 30px from the bottom */ }
+  bottom: 30px; }
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
 #snackbar.show {
   visibility: visible;
   /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
-  However, delay the fade out process for 2.5 seconds */
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s; }
 
-/* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {
     bottom: 0;

@@ -1,0 +1,26 @@
+.chart-container{
+    background-color: $primary-light;
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid $accent-2;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chart-container > h1 {
+    width: 50%;
+    margin: 0 auto;
+    border-bottom: 2px solid $accent-1;
+    padding: 10px;
+}
+
+.chart-pie {
+    padding: 20px;
+}
+
+.continent-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 80px;
+}

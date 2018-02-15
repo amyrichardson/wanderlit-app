@@ -43,7 +43,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
       //set bookCount back to 0 for each continent and totalBooks back to empty
       self.bookCount.count = [0, 0, 0, 0, 0, 0];
       self.totalBooksRead.total = [];
-      
+
       $http.get(`/lists/${userId}`).then(function(response) {
           self.toRead.list = response.data.to_read;
           self.currentlyReading.list = response.data.currently_reading;
@@ -121,13 +121,27 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
 
   //remove book from user list
   self.removeBookFromLists = function(bookId) {
-    $http.delete(`/lists/${bookId}`).then(function(response){
-      //update user lists
-      self.getUserLists(self.userObject.id);
+    swal({
+      text: "Are you sure you want to remove this book from your list?",
+      icon: "warning",
+      buttons: ['Nevermind', 'Yes, remove it'],
+      dangerMode: true,
     })
-    .catch(function(error){
-      console.log('error removing book: ', error);
-    })
+    .then((willDelete) => {
+      if (willDelete) {
+        $http.delete(`/lists/${bookId}`).then(function(response){
+          swal("The book was removed from your list.");
+          //update user lists
+          self.getUserLists(self.userObject.id);
+        })
+        .catch(function(error){
+          console.log('error removing book: ', error);
+        })
+      } else {
+        swal("Great! Your book is safe.");
+      }
+    });
+  
   } //end removeBookFromLists
 
   self.countBooksRead = function() {

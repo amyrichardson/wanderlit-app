@@ -1,0 +1,39 @@
+//Book list view styles
+.list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-heading {
+    width: 70%;
+    margin: 10px;
+    border-bottom: 2px solid $accent-1;
+    text-align: center;
+}
+
+.list-info {
+    @extend %book-card;
+    border: 2px solid $accent-2;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.list-info > div {
+    padding-left: 20px;
+}
+
+.currently-reading {
+    width: 50%;
+}
+
+.to-read {
+    width: 50%;
+}
+
+.previously-read {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

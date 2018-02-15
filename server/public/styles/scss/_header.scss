@@ -1,0 +1,64 @@
+// Header styles
+.header h1 {
+  font-family: $font-display;
+  font-size: 72px;
+  line-height: 0;
+  font-weight: lighter;
+}
+
+.header {
+  background-color: $accent-1;
+  color: $primary-medium;
+  padding: 5px;
+  border-bottom: 4px solid $accent-2;
+  text-align: center;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.header-link a {
+  color: $primary-medium;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.header-btn {
+  font-family: $font-body;
+  border: 0;
+  outline: 0;
+  background-color: $accent-1;
+  color: $primary-light;
+  cursor: pointer;
+}
+
+.header-btn:hover {
+  color: $accent-2;
+}
+
+//List styles 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: $accent-2;
+  text-align: center;
+  padding: 0px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: $primary-medium;
+}
