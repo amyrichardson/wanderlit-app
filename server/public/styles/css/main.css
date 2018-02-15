@@ -2,15 +2,33 @@
   display: flex;
   margin: 10px;
   padding: 10px;
-  background-color: #ECEBF0; }
+  background-color: #F8F7FC; }
 
 body, html {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  background-color: #C1C0C4;
+  font-size: 10pt;
+  background-color: #ECEBF0;
   color: #1B1C1B; }
+
+select {
+  outline: 0;
+  font-size: 10pt;
+  border: 1px solid #F8F7FC;
+  background-color: #C9ED67;
+  color: #5AAB94;
+  margin: 10px 0px; }
+
+input {
+  outline: 0;
+  border: 0;
+  padding: 5px;
+  font-size: 10pt;
+  width: 250px;
+  border-bottom: 2px solid #5AAB94;
+  background-color: #ECEBF0;
+  margin: 10px 0px; }
 
 .instructions h1 {
   font-family: "Satisfy", cursive;
@@ -19,10 +37,10 @@ body, html {
   font-weight: lighter; }
 
 .instructions {
-  background-color: #6A7F79;
+  background-color: #5AAB94;
   color: #ECEBF0;
   padding: 5px;
-  border-bottom: 4px solid #C1CE96;
+  border-bottom: 4px solid #C9ED67;
   text-align: center; }
 
 .instructions .container {
@@ -39,12 +57,12 @@ body, html {
   font-family: "Open Sans", sans-serif;
   border: 0;
   outline: 0;
-  background-color: #6A7F79;
-  color: #ECEBF0;
+  background-color: #5AAB94;
+  color: #F8F7FC;
   cursor: pointer; }
 
 .header-btn:hover {
-  color: #C1CE96; }
+  color: #C9ED67; }
 
 #entryForm {
   margin-top: 14px; }
@@ -75,7 +93,7 @@ li {
 
 li a {
   display: block;
-  color: #C1CE96;
+  color: #C9ED67;
   text-align: center;
   padding: 0px 16px;
   text-decoration: none; }
@@ -89,7 +107,7 @@ li a:hover {
   justify-content: center; }
 
 .book-info {
-  border: 2px solid #C1CE96;
+  border: 2px solid #C9ED67;
   border-radius: 5px;
   width: 90%;
   flex-direction: column; }
@@ -113,7 +131,7 @@ li a:hover {
   margin-left: 85%; }
 
 .book-title {
-  color: #6A7F79; }
+  color: #5AAB94; }
 
 .book-description {
   width: 60%;
@@ -126,16 +144,16 @@ li a:hover {
 .main-btn {
   border: 0;
   outline: 0;
-  background-color: #6A7F79;
+  background-color: #5AAB94;
   padding: 5px 15px;
   font-size: 10pt;
   cursor: pointer;
-  color: #ECEBF0;
+  color: #F8F7FC;
   border-radius: 5px; }
 
 .main-btn:hover {
-  background-color: #C1CE96;
-  color: #6A7F79; }
+  background-color: #C9ED67;
+  color: #5AAB94; }
 
 .filter-list {
   margin: 10px;
@@ -153,11 +171,11 @@ li a:hover {
 .list-heading {
   width: 70%;
   margin: 10px;
-  border-bottom: 2px solid #6A7F79;
+  border-bottom: 2px solid #5AAB94;
   text-align: center; }
 
 .list-info {
-  border: 2px solid #C1CE96;
+  border: 2px solid #C9ED67;
   border-radius: 5px;
   width: 30%; }
 
@@ -183,9 +201,9 @@ li a:hover {
   /* Set a default minimum width */
   margin-left: -125px;
   /* Divide value of min-width by 2 */
-  background-color: #6A7F79;
+  background-color: #5AAB94;
   /* Black background color */
-  color: #ECEBF0;
+  color: #F8F7FC;
   /* White text color */
   text-align: center;
   /* Centered text */
@@ -240,5 +258,27 @@ li a:hover {
   to {
     bottom: 0;
     opacity: 0; } }
+.chart-container {
+  background-color: #F8F7FC;
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid #C9ED67;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center; }
+
+.chart-container > h1 {
+  width: 50%;
+  margin: 0 auto;
+  border-bottom: 2px solid #5AAB94;
+  padding: 10px; }
+
+.chart-pie {
+  padding: 20px; }
+
+.continent-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 80px; }
 
 /*# sourceMappingURL=main.css.map */

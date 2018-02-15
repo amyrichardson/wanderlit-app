@@ -1,7 +1,18 @@
 <header ng-include="'/views/partials/user-header.html'"></header>
 
-<div class="container">
-  <p>
-    In Info
-  </p>
+<div class="chart-container">
+  <h1>Overview of Books Read</h1>
+  <h3>Total Books: {{vm.totalBooksRead.total[0]}}</h3>
+  <ul class="continent-list">
+
+    <li>Africa - {{vm.data[0]}}</li>
+    <li>Asia - {{vm.data[1]}}</li>
+    <li>Australia - {{vm.data[2]}}</li>
+    <li>Europe - {{vm.data[3]}}</li>
+    <li>North America - {{vm.data[4]}}</li>
+    <li>South America - {{vm.data[5]}}</li>
+  </ul>
+  <canvas id="pie" class="chart chart-pie"
+  chart-data="vm.data" chart-labels="vm.labels" chart-options="options">
+  </canvas> 
 </div>

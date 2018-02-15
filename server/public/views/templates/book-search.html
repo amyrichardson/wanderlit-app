@@ -4,20 +4,18 @@
 
 <div class="filter-list">
         <div>
-            <label>Select a continent: </label>
             <select ng-change="vm.getBooks(vm.selectedContinent)" ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
-                    <option value="">All</option>
+                    <option value="">All continents</option>
             </select>
         </div>
          <div>
-            <label>Search: </label>
-            <input type="text" id="query" ng-model="query">
+            <input type="text" id="query" ng-model="query" placeholder="Filter by title/author">
          </div>
     </div>
     
     
     <div class="book-container">
-        <div class="book-info" ng-repeat="book in vm.books.list | filter:query">
+        <div class="book-info" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating'">
             <div class="main-info">
                 <div class="book-details">
                     <div>
