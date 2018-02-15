@@ -40,8 +40,10 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
 
     //gets all user books from lists
     self.getUserLists = function(userId) {      
-      //set bookCount back to 0 for each continent
+      //set bookCount back to 0 for each continent and totalBooks back to empty
       self.bookCount.count = [0, 0, 0, 0, 0, 0];
+      self.totalBooksRead.total = [];
+      
       $http.get(`/lists/${userId}`).then(function(response) {
           self.toRead.list = response.data.to_read;
           self.currentlyReading.list = response.data.currently_reading;
