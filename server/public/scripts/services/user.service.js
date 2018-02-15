@@ -53,6 +53,48 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
       })
   } //end getUserLists
   
+  //check if user has already added book to list
+  self.checkBookLists = function(book){
+    console.log('service checking book list', book);
+    for (let i = 0; i < self.currentlyReading.list.length; i++) {      
+      if(book.id === self.currentlyReading.list[i].book_id) {
+        swal({
+          title: 'Oops!',
+          text: `You already added this book to your 'Currently Reading' list.`,
+          icon: 'warning',
+          button: 'OK'
+        })
+        return false;
+      } //end check if book is in currently reading list      
+    } //end loop
+    for (let i = 0; i < self.toRead.list.length; i++) {
+      if(book.id === self.toRead.list[i].book_id) {
+        swal({
+          title: 'Oops!',
+          text: `You already added this book to your 'To Read' list.`,
+          icon: 'warning',
+          button: 'OK'
+        })
+        return false;
+      } //end check if book is in to read list      
+    } //end loop
+    for (let i = 0; i < self.previouslyRead.list.length; i++) {
+      if(book.id === self.previouslyRead.list[i].book_id) {
+        swal({
+          title: 'Oops!',
+          text: `You already added this book to your 'Previously Read' list.`,
+          icon: 'warning',
+          button: 'OK'
+        })        
+        return false;
+      } //end check if book is in previously read list      
+    } //end loop
+
+    //if the book has not been added to any of the users' lists, return true
+    return true;
+  } //end checkBookLists
+
+
     //add book to user list
     self.addBookToList = function(book, userId) {      
       $http.post(`/lists/${userId}`, book).then(function(response) {
@@ -78,7 +120,6 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
   //remove book from user list
   self.removeBookFromLists = function(bookId) {
     $http.delete(`/lists/${bookId}`).then(function(response){
-      console.log('response from removing book: ', response);
       //update user lists
       self.getUserLists(self.userObject.id);
     })
@@ -88,10 +129,8 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
   } //end removeBookFromLists
 
   self.countBooksRead = function() {
-    console.log('previously read books: ', self.previouslyRead.list);
     for (let i = 0; i < self.previouslyRead.list.length; i++) {
       let book = self.previouslyRead.list[i];
-      console.log('book:', book);
       if(book.continent === 'Africa') {
         self.bookCount.count[0]++;
       } else if(book.continent === 'Asia') {
@@ -106,7 +145,6 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
         self.bookCount.count[5]++;
       }
     }// end loop
-    console.log('book count after loop:', self.bookCount);
 
     self.getTotalBooks();
   } //end getTotalBooks
@@ -115,11 +153,8 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
     let total = 0;
     for (let i = 0; i < self.bookCount.count.length; i++) {
       total += self.bookCount.count[i];
-      console.log('total: ', total);
     }
-    self.totalBooksRead.total.push(total);
-    console.log('self.total', self.totalBooksRead);
-    
+    self.totalBooksRead.total.push(total);    
   } //end getTotalBooks
 
   
