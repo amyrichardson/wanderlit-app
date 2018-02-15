@@ -27,6 +27,15 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
     BookService.getBooks(continent);
   } //end getBooks
 
+  //check if book has already been added to users lists
+  self.checkBookLists = function(book) {
+    console.log('checking book: ', book);
+    
+    if(UserService.checkBookLists(book) === true) {
+      self.addBookToList(book);
+    }
+  }
+
   //add book to user list
   self.addBookToList = function(book) {
     UserService.addBookToList(book, self.userObject.id);
@@ -50,7 +59,6 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
 
   //remove book from users lists
   self.removeBookFromLists = function(bookId) {
-    console.log('removing book from user list: ', bookId);
     UserService.removeBookFromLists(bookId);
   }
 
