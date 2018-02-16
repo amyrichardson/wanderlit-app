@@ -7,10 +7,7 @@
 }
 
 .list-heading {
-    width: 70%;
-    margin: 10px;
-    border-bottom: 2px solid $accent-1;
-    text-align: center;
+    @extend %heading;
 }
 
 .list-info {

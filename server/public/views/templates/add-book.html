@@ -2,17 +2,23 @@
 
 <div id="snackbar">Added book successfully.</div>
 
-<form ng-submit="vm.findBooks(vm.bookSearch)">
-    <div>
-        <input type="text" ng-model="vm.bookSearch" placeholder="Search by title/author" />
+<div class="container">
+    <h2 class="list-heading">Add a New Book</h2>
+    <div class="form-container">
+        <form class="search-form" ng-submit="vm.findBooks(vm.bookSearch)">
+            <div>
+                <input class="filter" type="text" ng-model="vm.bookSearch" placeholder="Search by title/author" />
+            </div>
+            <div>
+                <button class="main-btn" type="submit">Search</button>
+            </div>
+        </form>
     </div>
-    <div>
-        <button class="main-btn" type="submit">Search</button>
-    </div>
-</form>
+</div>
 
-<div class="book-container" ng-repeat="book in vm.goodreadsBooks.list">
-    <div class="book-info">
+<div class="book-container">
+    <h2 class="list-heading" ng-if="vm.goodreadsBooks.list.length > 0">Search Results</h2>
+    <div class="book-info" ng-repeat="book in vm.goodreadsBooks.list">
         <div class="main-info">
             <div class="book-details">
                 <div>

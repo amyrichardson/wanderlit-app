@@ -10,7 +10,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
 
     self.login = function () {
       if (self.user.username === '' || self.user.password === '') {
-        self.message = "Enter your username and password!";
+        self.message = "Please enter your username and password.";
       } else {
         console.log('sending to server...', self.user);
         $http.post('/api/user/login', self.user).then(
@@ -22,7 +22,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
                 $location.path('/book-lists');
               } else if(response.data.is_admin == true) {
                 //if user is an admin
-                $location.path('/continents-overview');
+                $location.path('/manage-books');
               }
             } else {
               console.log('failure error: ', response);
@@ -38,7 +38,7 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
 
     self.registerUser = function () {
       if (self.user.username === '' || self.user.password === '') {
-        self.message = "Choose a username and password!";
+        self.message = "Please choose a username and password.";
       } else {
         console.log('sending to server...', self.user);
         $http.post('/api/user/register', self.user).then(function (response) {

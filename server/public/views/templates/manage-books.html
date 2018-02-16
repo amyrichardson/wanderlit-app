@@ -2,18 +2,19 @@
 
 
 <!-- Manage books section -->
-<div class="filter-list">
-    <div>
-        <select ng-change="vm.getBooks(vm.selectedContinent)" ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
-            <option value="">All continents</option>
-        </select>  
-    </div>
-     <div>
-        <input type="text" id="query" ng-model="query" placeholder="Filter by title/author">
-     </div>
+<div class="container">
+    <h2 class="list-heading">Manage Books</h2>
+        <div class="search-form">
+            <div>
+                <select ng-change="vm.getBooks(vm.selectedContinent)" ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
+                    <option value="">All continents</option>
+                </select>  
+            </div>
+            <div>
+                <input class="filter-medium"  type="text" id="query" ng-model="query" placeholder="Filter by title/author">
+            </div>
+        </div>
 </div>
-
-
 <div class="book-container" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating' ">
     <div class="book-info">
         <div class="main-info">

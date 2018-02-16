@@ -54,8 +54,8 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
-    .when('/continents-overview', {
-      templateUrl: '/views/templates/continents-overview.html',
+    .when('/manage-books', {
+      templateUrl: '/views/templates/manage-books.html',
       controller: 'BookController as vm',
       resolve: {
         getuser : function(UserService){
