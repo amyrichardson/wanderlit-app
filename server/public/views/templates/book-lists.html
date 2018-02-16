@@ -6,6 +6,9 @@
     <div class="list-heading">
         <h3>Currently Reading</h3>
     </div>
+    <div ng-if="vm.currentlyReading.list.length == 0">
+        <h4>You don't have any books added to this list yet.</h4>
+    </div>
     <div class="list-info currently-reading" ng-repeat="book in vm.currentlyReading.list">
         <div>
             <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
@@ -15,7 +18,7 @@
             <p>By {{book.author}}</p>
             <p>{{book.continent}}</p>
             <button ng-click="vm.changeBookStatus(book.book_id, 'previously_read')" class="main-btn">Mark Complete</button>
-            <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Stop Reading</button>
+            <button ng-click="vm.changeBookStatus(book.book_id, 'to_read')" class="main-btn">Stop Reading</button>
         </div>
     </div>
 </div>
@@ -23,6 +26,9 @@
 <div class="list-container">
     <div class="list-heading">
         <h3>To Read</h3>
+    </div>
+    <div>
+        <h4 ng-if="vm.toRead.list.length == 0">You don't have any books added to this list yet.</h4>
     </div>
         <div class="list-info to-read" ng-repeat="book in vm.toRead.list">
             <div>
@@ -42,8 +48,14 @@
     <div class="list-heading">
         <h3>Previously Read</h3>
     </div> 
+    <div>
+        <input type="text" id="query" ng-model="query" placeholder="Filter by title/author">
+    </div>
+    <div ng-if="vm.previouslyRead.list.length == 0">
+        <h4>You don't have any books added to this list yet.</h4>
+    </div>
     <div class="previously-read">   
-        <div class="list-info" ng-repeat="book in vm.previouslyRead.list">
+        <div class="list-info" ng-repeat="book in vm.previouslyRead.list | filter: query | orderBy: 'title'">
             <div>
                 <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
             </div>

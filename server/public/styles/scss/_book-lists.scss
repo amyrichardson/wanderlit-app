@@ -17,7 +17,7 @@
     @extend %book-card;
     border: 2px solid $accent-2;
     border-radius: 5px;
-    width: 30%;
+    width: 25%;
 }
 
 .list-info > div {
@@ -36,4 +36,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }

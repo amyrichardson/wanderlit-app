@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="book-description">
-                <p>{{book.description}}</p>
+                <p ng-bind-html="vm.renderHtml(book.description)"></p>
             </div>
         </div>
         

@@ -9,6 +9,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
   self.bookCount = { count: [0, 0, 0, 0, 0, 0] };
   self.totalBooksRead = {total: []};
 
+  //gets regular user
   self.getuser = function(){
     $http.get('/api/user').then(function(response) {
         if(response.data.username) {
@@ -28,7 +29,27 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
       console.log('UserService -- getuser -- failure: ', response);
       $location.path("/home");
     });
-  }
+  } //end getuser
+
+  //gets admin user
+  self.getadmin = function(){
+    $http.get('/api/user').then(function(response) {
+        if(response.data.username && response.data.is_admin === true) {
+            // user has a current session on the server
+            self.userObject.userName = response.data.username;
+            self.userObject.id = response.data.id;
+            self.userObject.is_admin = response.data.is_admin;
+            
+        } else {
+            console.log('UserService -- getuser -- failure');
+            // user has no session, bounce them back to the login page
+            $location.path("/403");
+        }
+    },function(response){
+      console.log('UserService -- getuser -- failure: ', response);
+      $location.path("/home");
+    });
+  } //end getadmin
 
   //logout user
   self.logout = function() {
@@ -91,7 +112,6 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
         return false;
       } //end check if book is in previously read list      
     } //end loop
-
     //if the book has not been added to any of the users' lists, return true
     return true;
   } //end checkBookLists

@@ -1,28 +1,28 @@
-myApp.controller('BookController', ['UserService', 'BookService', function(UserService, BookService) {
+myApp.controller('BookController', ['UserService', 'BookService', function (UserService, BookService) {
     console.log('BookController created');
     var self = this;
     self.userService = UserService;
-    
-    
+
+
     //book lists
     self.bookService = BookService;
-    self.goodreadsBooks = BookService.goodreadsBooks; 
+    self.goodreadsBooks = BookService.goodreadsBooks;
     self.books = BookService.books;
 
     //continent list
     self.continents = BookService.continents;
-    
+    self.renderHtml = BookService.renderHtml;
 
-    
+
     //sends book search info to BookService
-    self.findBooks = function(bookSearch) {
+    self.findBooks = function (bookSearch) {
         BookService.findBooks(bookSearch)
     } //end findBooks
 
     //creates new book object for book service to send to server
-    self.addBook = function(book, continent) {
+    self.addBook = function (book, continent) {
         console.log('continent in controller: ', continent);
-        
+
         let bookToAdd = {
             title: book.best_book.title._text,
             author: book.best_book.author.name._text,
@@ -37,23 +37,24 @@ myApp.controller('BookController', ['UserService', 'BookService', function(UserS
         self.addBookSnackbar();
     } //end addBook
 
-    self.addBookSnackbar = function() {
+    self.addBookSnackbar = function () {
         var x = document.getElementById('snackbar');
         x.className = 'show';
-        setTimeout(function(){ x.className = x.className.replace('show', '');}, 3000);
-      }
+        setTimeout(function () {
+            x.className = x.className.replace('show', '');
+        }, 3000);
+    }
 
 
     //get books from db
-    self.getBooks = function(continent) {
+    self.getBooks = function (continent) {
         console.log('getting books for: ', continent);
         BookService.getBooks(continent);
     } //end getBooks
 
-    self.deleteBook = function(bookId) {
+    self.deleteBook = function (bookId) {
         console.log('deleting book', bookId);
         BookService.deleteBook(bookId);
     }
 
-  }]);
-  
+}]);

@@ -18,6 +18,9 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
   self.bookCount = UserService.bookCount;
   self.totalBooksRead = UserService.totalBooksRead;
   
+
+  self.renderHtml = BookService.renderHtml;
+
   //labels and data for pie chart
   self.labels = ['Africa', 'Asia', 'Australia', 'Europe', 'North America', 'South America'];
   self.data = self.bookCount.count;
@@ -32,7 +35,18 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
     console.log('checking book: ', book);
     
     if(UserService.checkBookLists(book) === true) {
-      self.addBookToList(book);
+      console.log('book:', book);
+      
+      if(!book.status) {
+        swal({
+          title: 'Oops!',
+          text: `Please select which list you'd like to add this book to.`,
+          icon: 'error',
+          button: 'OK'
+        })        
+      } else {
+        self.addBookToList(book);
+      }
     }
   }
 
@@ -49,6 +63,8 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
   }
 
   //change books status given id and new status
+  //self.changeBookStatus = UserService.changeBookStatus;
+  //only goes through one function
   self.changeBookStatus = function(bookId, newStatus) {
     let bookInfo = {
       bookId: bookId,

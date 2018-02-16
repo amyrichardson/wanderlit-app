@@ -21,8 +21,7 @@ body, html {
   color: #5AAB94; }
 
 .header h1 {
-  font-family: "Satisfy", cursive;
-  font-size: 72px;
+  font-size: 32pt;
   line-height: 0;
   font-weight: lighter; }
 
@@ -72,31 +71,6 @@ li a {
 
 li a:hover {
   color: #ECEBF0; }
-
-select {
-  outline: 0;
-  font-size: 10pt;
-  border: 1px solid #F8F7FC;
-  background-color: #C9ED67;
-  color: #5AAB94;
-  margin: 10px 0px; }
-
-input {
-  outline: 0;
-  border: 0;
-  padding: 5px;
-  font-size: 10pt;
-  width: 250px;
-  border-bottom: 2px solid #5AAB94;
-  background-color: #ECEBF0;
-  margin: 10px 0px; }
-
-.filter-list {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
 
 .book-info, .list-info {
   display: flex;
@@ -159,7 +133,7 @@ input {
 .list-info {
   border: 2px solid #C9ED67;
   border-radius: 5px;
-  width: 30%; }
+  width: 25%; }
 
 .list-info > div {
   padding-left: 20px; }
@@ -173,6 +147,55 @@ input {
 .previously-read {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 100%; }
+
+.chart-container {
+  background-color: #F8F7FC;
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid #C9ED67;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center; }
+
+.chart-container > h1 {
+  width: 50%;
+  margin: 0 auto;
+  border-bottom: 2px solid #5AAB94;
+  padding: 10px; }
+
+.chart-pie {
+  padding: 20px; }
+
+.continent-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 80px; }
+
+select {
+  outline: 0;
+  font-size: 10pt;
+  border: 1px solid #F8F7FC;
+  background-color: #C9ED67;
+  color: #5AAB94;
+  margin: 10px 0px; }
+
+input {
+  outline: 0;
+  border: 0;
+  padding: 5px;
+  font-size: 10pt;
+  width: 250px;
+  border-bottom: 2px solid #5AAB94;
+  background-color: #ECEBF0;
+  margin: 10px 0px; }
+
+.filter-list {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center; }
 
 #snackbar {
@@ -224,29 +247,6 @@ input {
   to {
     bottom: 0;
     opacity: 0; } }
-.chart-container {
-  background-color: #F8F7FC;
-  width: 80%;
-  margin: 0 auto;
-  border: 2px solid #C9ED67;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: center; }
-
-.chart-container > h1 {
-  width: 50%;
-  margin: 0 auto;
-  border-bottom: 2px solid #5AAB94;
-  padding: 10px; }
-
-.chart-pie {
-  padding: 20px; }
-
-.continent-list {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 80px; }
-
 .swal-modal {
   background-color: #ECEBF0;
   border: 2px solid #C9ED67; }

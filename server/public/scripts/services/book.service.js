@@ -1,4 +1,4 @@
-myApp.service('BookService', ['$http', function($http) {
+myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
     console.log('Book Service loaded');
     
     var self = this;
@@ -15,6 +15,10 @@ myApp.service('BookService', ['$http', function($http) {
             {name: 'South America'}
         ] 
     };
+
+    self.renderHtml = function(description) {
+        return $sce.trustAsHtml(description);
+    }
 
     //makes http get request to Goodreads API, sends data back to BookController
     self.findBooks = function(bookSearch) {

@@ -59,7 +59,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       controller: 'BookController as vm',
       resolve: {
         getuser : function(UserService){
-          return UserService.getuser();
+          return UserService.getadmin();
         } //check for admin type
       }
     })
@@ -68,9 +68,12 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       controller: 'BookController as vm',
       resolve: {
         getuser : function(UserService){
-          return UserService.getuser();
+          return UserService.getadmin();
         } //check for admin type
       }
+    })
+    .when('/403', {
+      template: '<h1>403</h1>'
     })
     .otherwise({
       template: '<h1>404</h1>'
