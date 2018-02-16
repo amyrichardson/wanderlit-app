@@ -1,6 +1,6 @@
 # Wanderlit
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+Wanderlit is a full-stack application that promotes lovers of literature to read more books from continents other than the one which they are from. The app utlizes the Goodreads API to add books and additional information regarding continental origin to a database. Users are then able to search for books by continent, add books to reading lists, and view a report of that provides a breakdown of the books they have read by continent.
 
 ## Built With
 - Node.js
@@ -8,8 +8,9 @@ One Paragraph of project description goes here. Link to the live version of the 
 - AngularJS
 - Goodreads API
 - PostgreSQL
-- PassportJS
+- Passport.js
 - Sass
+- Chart.js
 
 ## Getting Started
 
@@ -27,19 +28,34 @@ Steps to get the development environment running.
 
 ```sql
 CREATE TABLE "users" (
-  "id" serial primary key,
-  "username" varchar(80) not null UNIQUE,
-  "password" varchar(240) not null
+  id serial primary key,
+  username varchar(80) not null UNIQUE,
+  password varchar(240) not null,
+  is_admin boolean default 'false' 
+);
+
+CREATE TABLE books (
+	id serial primary key,
+	title varchar(240) not null,
+	author varchar(100) not null,
+	continent varchar(50),
+	cover_url varchar(240),
+	average_rating decimal,
+	year_published int,
+	description text
+);
+
+CREATE TABLE users_books (
+	id serial primary key,
+	user_id int references users(id),
+	book_id int references books(id),
+	status varchar(30)
 );
 ```
 
-## Screen Shot
-
-Include one or two screen shots of your project here (optional). Remove if unused.
-
 ## Documentation
 
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
+https://docs.google.com/document/d/1hGKw3sZOcG7JEPhAyQchfPDYMKCIISOFh6eWuDl6d50/edit?usp=sharing
 
 ### Completed Features
 
@@ -60,9 +76,4 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* Name of author(s)
-
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
+* Amy Richardson
