@@ -61,11 +61,12 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
     } //end checkBookLists
 
   //add book to user list
-  self.addBookToList = function(book) {
-    if(UserService.addBookToList(book, self.userObject.id) === true) {
-      self.addBookSnackbar();
-    }
-  } //end addBookToList
+  self.addBookToList = UserService.addBookToList;
+  // self.addBookToList = function(book) {
+  //   if(UserService.addBookToList(book, self.userObject.id) === true) {
+  //     self.addBookSnackbar();
+  //   }
+  // } //end addBookToList
 
   //show snackbar when book is added
   self.addBookSnackbar = function() {

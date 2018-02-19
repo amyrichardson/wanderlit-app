@@ -53,12 +53,20 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
     }
 
     //sends new book info to server
-    self.addBook = function(bookToAdd) { 
-        console.log('service adding book: ', bookToAdd);
-               
+    self.addBook = function(book, continent) { 
+        let bookToAdd = {
+            goodreadsId: book.best_book.id._text,
+            title: book.best_book.title._text,
+            author: book.best_book.author.name._text,
+            cover_url: book.best_book.image_url._text,
+            average_rating: book.average_rating._text,
+            year_published: book.original_publication_year._text,
+            continent: continent.name,
+            description: book.description
+        } //end bookToAdd object       
         //post bookToAdd to book router
         $http.post('/books', bookToAdd).then(function(response){
-            self.getBooks();
+            self.addBookSnackbar();
         })
         .catch(function(error){
             console.log('error on post: ', error);
@@ -67,9 +75,18 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
                 text: `Something went wrong. Please try again.`,
                 icon: 'error',
                 button: 'OK'
-              })   
+              })
+              return false;   
         })
     } //end addBook
+
+    self.addBookSnackbar = function () {
+        var x = document.getElementById('snackbar');
+        x.className = 'show';
+        setTimeout(function () {
+            x.className = x.className.replace('show', '');
+        }, 3000);
+    } //end addBookSnackbar
 
 
     //delete book from db

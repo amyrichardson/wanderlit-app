@@ -128,8 +128,8 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
       console.log('user id: ', self.userObject.id);
          
       $http.post(`/lists/${self.userObject.id}`, book).then(function(response) {
+          self.addBookSnackbar();
           self.getUserLists(self.userObject.id);
-          return true;
       })
       .catch(function(error) {
           console.log('error adding book to list: ', error);
@@ -139,12 +139,19 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
             icon: 'error',
             button: 'OK'
           })
-          return false;   
       })
   } //end addBookToList
 
+  //show snackbar once book is successfully added to user list
+  self.addBookSnackbar = function () {
+    var x = document.getElementById('snackbar');
+    x.className = 'show';
+    setTimeout(function () {
+        x.className = x.className.replace('show', '');
+    }, 3000);
+} //end addBookSnackbar
 
-  //change book status
+  //change book status for a user
   self.changeBookStatus = function(bookId, newStatus) {
     let bookInfo = {
       bookId: bookId,
@@ -196,6 +203,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
   
   } //end removeBookFromLists
 
+  //count books a user read by continent
   self.countBooksRead = function() {
     for (let i = 0; i < self.previouslyRead.list.length; i++) {
       let book = self.previouslyRead.list[i];
@@ -217,7 +225,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
     self.getTotalBooks();
   } //end countBooksRead
 
-  //get total books read
+  //get total books a user has read
   self.getTotalBooks = function () {
     let total = 0;
     for (let i = 0; i < self.bookCount.count.length; i++) {

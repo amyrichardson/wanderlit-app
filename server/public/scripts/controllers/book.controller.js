@@ -3,7 +3,6 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     var self = this;
     self.userService = UserService;
 
-
     //book vars
     self.bookService = BookService;
     self.goodreadsBooks = BookService.goodreadsBooks;
@@ -32,17 +31,15 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
             })        
             } else {
             UserService.addBookToList(book);
-            self.addBookSnackbar();
             }
         }
     } //end checkBookLists
 
 
-    //sends book search info to BookService
-    self.findBooks = function (bookSearch) {
-        BookService.findBooks(bookSearch)
-    } //end findBooks
 
+    //admin functions
+    //sends book search info to BookService
+    self.findBooks = BookService.findBooks;
 
     //check if book has already been added to database
     self.checkBook = function (book, continent) {
@@ -73,56 +70,36 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
                 button: 'OK'
               })     
         } else {
+            console.log('adding book');
+            
             self.addBook(book, continent);
         }
-    }
+    } //end checkBook
 
-    //creates new book object for book service to send to server
-    self.addBook = function (book, continent) {
-        console.log('book in add book controller: ', book);
-
-        let bookToAdd = {
-            goodreadsId: book.best_book.id._text,
-            title: book.best_book.title._text,
-            author: book.best_book.author.name._text,
-            cover_url: book.best_book.image_url._text,
-            average_rating: book.average_rating._text,
-            year_published: book.original_publication_year._text,
-            continent: continent.name,
-            description: book.description
-        } //end bookToAdd object
-
-        BookService.addBook(bookToAdd);
-        self.addBookSnackbar();
-    } //end addBook
-
-    self.addBookSnackbar = function () {
-        var x = document.getElementById('snackbar');
-        x.className = 'show';
-        setTimeout(function () {
-            x.className = x.className.replace('show', '');
-        }, 3000);
-    } //end addBookSnackbar
+    //add book to database
+    self.addBook = BookService.addBook;
+    
+    //delete book from database
+    self.deleteBook = function (bookId) {
+        console.log('deleting book', bookId);
+        BookService.deleteBook(bookId);
+    } //end deleteBook
 
 
+
+
+    //functions that get books from database
     //get books from db
     self.getBooks = function (continent) {
         console.log('getting books for: ', continent);
         BookService.getBooks(continent);
     } //end getBooks
 
-
     // get one book
     self.getSingleBook = function(bookId) {
         console.log('getting single game with id of: ', bookId);
         BookService.getSingleBook(bookId)
     }//end getSingleBook
-
-
-    self.deleteBook = function (bookId) {
-        console.log('deleting book', bookId);
-        BookService.deleteBook(bookId);
-    } //end getSingleBook
 
     // do we want one book or all games?
     if($routeParams.id) {
