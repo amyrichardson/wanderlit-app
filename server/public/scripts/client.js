@@ -56,7 +56,21 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/book/:id', {
       templateUrl: 'views/templates/book.html',
-      controller: 'BookController as vm'
+      controller: 'BookController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/manage-book/:id', {
+      templateUrl: 'views/templates/manage-book.html',
+      controller: 'BookController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getadmin();
+        } //check for admin type
+      }
     })
     .when('/manage-books', {
       templateUrl: '/views/templates/manage-books.html',
