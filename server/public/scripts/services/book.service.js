@@ -47,7 +47,9 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
     }
 
     //sends new book info to server
-    self.addBook = function(bookToAdd) {        
+    self.addBook = function(bookToAdd) { 
+        console.log('service adding book: ', bookToAdd);
+               
         //post bookToAdd to book router
         $http.post('/books', bookToAdd).then(function(response){
             self.getBooks();

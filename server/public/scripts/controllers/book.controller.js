@@ -21,9 +21,10 @@ myApp.controller('BookController', ['UserService', 'BookService', function (User
 
     //creates new book object for book service to send to server
     self.addBook = function (book, continent) {
-        console.log('continent in controller: ', continent);
+        console.log('book in add book controller: ', book);
 
         let bookToAdd = {
+            goodreadsId: book.best_book.id._text,
             title: book.best_book.title._text,
             author: book.best_book.author.name._text,
             cover_url: book.best_book.image_url._text,
