@@ -17,8 +17,13 @@
             <p class="book-title">{{book.title}}</p>
             <p>By {{book.author}}</p>
             <p>{{book.continent}}</p>
-            <button ng-click="vm.changeBookStatus(book.book_id, 'previously_read')" class="main-btn">Mark Complete</button>
-            <button ng-click="vm.changeBookStatus(book.book_id, 'to_read')" class="main-btn">Stop Reading</button>
+            <div class="book-action">
+                <a href="#!book/{{book.book_id}}">More Details</a>
+                <div>
+                    <button ng-click="vm.changeBookStatus(book.book_id, 'previously_read')" class="main-btn">Mark Complete</button>
+                    <button ng-click="vm.changeBookStatus(book.book_id, 'to_read')" class="main-btn">Stop Reading</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -38,8 +43,15 @@
                 <p class="book-title">{{book.title}}</p>
                 <p>By {{book.author}}</p>
                 <p>{{book.continent}}</p>
-                <button ng-click="vm.changeBookStatus(book.book_id, 'currently_reading')" class="main-btn">Start Reading</button>
-                <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button>
+                <div class="book-action">
+                    <a href="#!book/{{book.book_id}}">More Details</a>
+                    <div>
+                        <button ng-click="vm.changeBookStatus(book.book_id, 'currently_reading')" class="main-btn">Start Reading</button>
+                        <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button> 
+                    </div>
+                    
+                </div>
+               
             </div>
         </div> 
 </div>
@@ -63,7 +75,12 @@
                 <p class="book-title">{{book.title}}</p>
                 <p>By {{book.author}}</p>
                 <p>{{book.continent}}</p>
-                <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button>
+                <div class="book-action">
+                    <a href="#!book/{{book.book_id}}">More Details</a>
+                    <div>
+                        <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button>
+                    </div>   
+                </div>
             </div>
         </div>
     </div>

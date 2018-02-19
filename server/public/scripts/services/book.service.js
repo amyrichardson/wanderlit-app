@@ -126,8 +126,6 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
     //end getSingleBook
     self.getSingleBook = function(bookId) {
         console.log('in service getting single book: ', bookId);
-        
-
         $http.get(`/books/view/${bookId}`)
         .then(function (response) {
             self.singleBook.book = response.data;

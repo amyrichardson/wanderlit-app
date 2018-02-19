@@ -10,6 +10,7 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
   //lists from book service
   self.books = BookService.books;
   self.continents = BookService.continents;
+  self.singleBook = BookService.singleBook;
 
   //lists from list service
   self.toRead = UserService.toRead;
@@ -25,18 +26,27 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
   self.labels = ['Africa', 'Asia', 'Australia', 'Europe', 'North America', 'South America'];
   self.data = self.bookCount.count;
 
+  //Book Functions
+
   //get books from database
   self.getBooks = function(continent) {
     BookService.getBooks(continent);
   } //end getBooks
 
+  //get single book w/ router params
+  self.getSingleBook = BookService.getSingleBook;
+
+  //change books status given id and new status
+  self.changeBookStatus = UserService.changeBookStatus;
+
+  //remove book from users lists
+  self.removeBookFromLists = UserService.removeBookFromLists;
+
   //check if book has already been added to users lists
   self.checkBookLists = function(book) {
       console.log('checking book: ', book);
-      
       if(UserService.checkBookLists(book) === true) {
         console.log('book:', book);
-        
         if(!book.status) {
           swal({
             title: 'Oops!',
@@ -52,30 +62,17 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
 
   //add book to user list
   self.addBookToList = function(book) {
-    UserService.addBookToList(book, self.userObject.id);
-    self.addBookSnackbar();
+    if(UserService.addBookToList(book, self.userObject.id) === true) {
+      self.addBookSnackbar();
+    }
   } //end addBookToList
 
+  //show snackbar when book is added
   self.addBookSnackbar = function() {
     var x = document.getElementById('snackbar');
     x.className = 'show';
     setTimeout(function(){ x.className = x.className.replace('show', '');}, 3000);
   }
 
-  //change books status given id and new status
-  //self.changeBookStatus = UserService.changeBookStatus;
-  //only goes through one function
-  self.changeBookStatus = function(bookId, newStatus) {
-    let bookInfo = {
-      bookId: bookId,
-      newStatus: newStatus
-    }
-    UserService.changeBookStatus(bookInfo);
-  } //end changeBookStatus
-
-  //remove book from users lists
-  self.removeBookFromLists = function(bookId) {
-    UserService.removeBookFromLists(bookId);
-  }
 
 }]);

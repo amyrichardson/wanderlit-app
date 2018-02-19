@@ -129,6 +129,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
          
       $http.post(`/lists/${self.userObject.id}`, book).then(function(response) {
           self.getUserLists(self.userObject.id);
+          return true;
       })
       .catch(function(error) {
           console.log('error adding book to list: ', error);
@@ -137,13 +138,18 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
             text: `Something went wrong. Please try again.`,
             icon: 'error',
             button: 'OK'
-          })   
+          })
+          return false;   
       })
   } //end addBookToList
 
 
   //change book status
-  self.changeBookStatus = function(bookInfo) {
+  self.changeBookStatus = function(bookId, newStatus) {
+    let bookInfo = {
+      bookId: bookId,
+      newStatus: newStatus
+    }
     $http.put('/lists', bookInfo).then(function(response){
       //update user lists
       self.getUserLists(self.userObject.id);

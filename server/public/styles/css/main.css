@@ -128,13 +128,12 @@ li a:hover {
 
 .book-action {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin: 0px 20px; }
+  align-items: baseline; }
 
 .book-action > a {
   text-decoration: none;
-  color: #5AAB94; }
+  color: #5AAB94;
+  margin: 0px 20px; }
 
 .book-action > a:hover {
   color: #C9ED67; }
@@ -156,7 +155,7 @@ li a:hover {
 .list-info {
   border: 2px solid #C9ED67;
   border-radius: 5px;
-  width: 25%; }
+  width: 30%; }
 
 .list-info > div {
   padding-left: 20px; }
