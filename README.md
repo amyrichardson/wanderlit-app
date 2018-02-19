@@ -1,6 +1,6 @@
 # Wanderlit
 
-Wanderlit is a full-stack application that promotes lovers of literature to read more books from continents other than the one which they are from. The app utlizes the Goodreads API to add books and additional information regarding continental origin to a database. Users are then able to search for books by continent, add books to reading lists, and view a report of that provides a breakdown of the books they have read by continent.
+Wanderlit is a full-stack application that promotes lovers of literature to read more books from continents other than the one which they are from. The app utlizes the Goodreads API to add books and additional information regarding continental origin to a database. Users are then able to search for books by continent, add books to reading lists, and view a report that provides a breakdown of the books they have read by continent.
 
 ## Built With
 - Node.js
@@ -56,23 +56,6 @@ CREATE TABLE users_books (
 ## Documentation
 
 https://docs.google.com/document/d/1hGKw3sZOcG7JEPhAyQchfPDYMKCIISOFh6eWuDl6d50/edit?usp=sharing
-
-### Completed Features
-
-High level list of items completed.
-
-- [x] Feature a
-- [x] Feature b
-
-### Next Steps
-
-Features that you would like to add at some point in the future.
-
-- [ ] Feature c
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Authors
 

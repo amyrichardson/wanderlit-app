@@ -183,8 +183,9 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
     }// end loop
 
     self.getTotalBooks();
-  } //end getTotalBooks
+  } //end countBooksRead
 
+  //get total books read
   self.getTotalBooks = function () {
     let total = 0;
     for (let i = 0; i < self.bookCount.count.length; i++) {
