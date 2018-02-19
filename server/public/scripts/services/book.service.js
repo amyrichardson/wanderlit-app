@@ -28,7 +28,12 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
         })
         .catch(function(error) {
             console.log('error: ', error);
-            
+            swal({
+                title: 'Uh oh.',
+                text: `Something went wrong. Please try again.`,
+                icon: 'error',
+                button: 'OK'
+              })     
         })
     } //end findBooks
 
@@ -40,7 +45,7 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
                 book.description = response.data.GoodreadsResponse.book.description._cdata;
             })
             .catch(function(error){
-                console.log('book description error', error);
+                console.log('book description error', error);  
             })
         }
         return books;
@@ -56,6 +61,12 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
         })
         .catch(function(error){
             console.log('error on post: ', error);
+            swal({
+                title: 'Uh oh.',
+                text: `Something went wrong. Please try again.`,
+                icon: 'error',
+                button: 'OK'
+              })   
         })
     } //end addBook
 
@@ -76,6 +87,12 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
                 })
                 .catch(function(error){
                     console.log('delete error:', error);
+                    swal({
+                        title: 'Uh oh.',
+                        text: `Something went wrong. Please try again.`,
+                        icon: 'error',
+                        button: 'OK'
+                      })   
                 })
             } else {
               swal("Great! The book is safe.");

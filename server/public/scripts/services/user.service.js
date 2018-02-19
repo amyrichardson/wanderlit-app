@@ -73,6 +73,12 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
       })
       .catch(function(error){
           console.log('error getting lists: ', error);
+          swal({
+            title: 'Uh oh.',
+            text: `Something went wrong. Please try again.`,
+            icon: 'error',
+            button: 'OK'
+          })   
       })
   } //end getUserLists
   
@@ -124,6 +130,12 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
       })
       .catch(function(error) {
           console.log('error adding book to list: ', error);
+          swal({
+            title: 'Uh oh.',
+            text: `Something went wrong. Please try again.`,
+            icon: 'error',
+            button: 'OK'
+          })   
       })
   } //end addBookToList
 
@@ -136,6 +148,12 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
     })
     .catch(function(error){
       console.log('error changing book status: ', error);
+      swal({
+        title: 'Uh oh.',
+        text: `Something went wrong. Please try again.`,
+        icon: 'error',
+        button: 'OK'
+      })   
     })
   } //end changeBookStatus
 
@@ -156,6 +174,12 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
         })
         .catch(function(error){
           console.log('error removing book: ', error);
+          swal({
+            title: 'Uh oh.',
+            text: `Something went wrong. Please try again.`,
+            icon: 'error',
+            button: 'OK'
+          })   
         })
       } else {
         swal("Great! Your book is safe.");
