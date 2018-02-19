@@ -6,7 +6,8 @@ var textVersion = require('textversionjs')
 var convert = require('xml-js');
 
 router.get('/:bookId', (req,res) => {
-    axios.get(`https://www.goodreads.com/book/show/${req.params.bookId}.xml?key=OHtX0PJH8qIwgMvihQfpxw`).then(function(response) {
+    if(req.isAuthenticated()) {
+        axios.get(`https://www.goodreads.com/book/show/${req.params.bookId}.xml?key=OHtX0PJH8qIwgMvihQfpxw`).then(function(response) {
             let json = convert.xml2json(response.data, {compact: true, spaces: 4}) //converts xml response to json
             res.send(json); //sends json back to client            
         })
@@ -14,6 +15,10 @@ router.get('/:bookId', (req,res) => {
             console.log('error book description: ', error);
             res.sendStatus(500);
         })
+
+    } else {
+        res.sendStatus(403);
+    }
 })
 
 
