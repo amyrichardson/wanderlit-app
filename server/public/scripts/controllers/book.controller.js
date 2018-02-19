@@ -42,8 +42,18 @@ myApp.controller('BookController', ['UserService', 'BookService', function (User
             } //end if
             
         } //end for loop
-        self.addBook(book, continent);
 
+        //check if continent was chosen
+        if(!continent) {
+            swal({
+                title: 'Oops!',
+                text: `Please select the continent for this book.`,
+                icon: 'error',
+                button: 'OK'
+              })     
+        } else {
+            self.addBook(book, continent);
+        }
     }
 
     //creates new book object for book service to send to server
