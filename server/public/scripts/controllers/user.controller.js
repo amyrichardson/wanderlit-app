@@ -68,12 +68,4 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
   //   }
   // } //end addBookToList
 
-  //show snackbar when book is added
-  self.addBookSnackbar = function() {
-    var x = document.getElementById('snackbar');
-    x.className = 'show';
-    setTimeout(function(){ x.className = x.className.replace('show', '');}, 3000);
-  }
-
-
 }]);

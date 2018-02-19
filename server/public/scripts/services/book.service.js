@@ -25,7 +25,9 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
     self.findBooks = function(bookSearch) {
         $http.get(`/books/${bookSearch}`).then(function(response) {
             let books = response.data.GoodreadsResponse.search.results.work;
-            self.goodreadsBooks.list = self.getBookDescriptions(books);          
+            self.goodreadsBooks.list = self.getBookDescriptions(books);  
+            console.log(self.goodreadsBooks.list);
+                    
         })
         .catch(function(error) {
             console.log('error: ', error);
@@ -62,7 +64,8 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
             average_rating: book.average_rating._text,
             year_published: book.original_publication_year._text,
             continent: continent.name,
-            description: book.description
+            description: book.description,
+            ratings_count: book.ratings_count._text
         } //end bookToAdd object       
         //post bookToAdd to book router
         $http.post('/books', bookToAdd).then(function(response){

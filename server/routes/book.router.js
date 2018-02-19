@@ -52,9 +52,9 @@ router.post('/', (req, res) => {
 
         let bookToAdd = req.body;
         // insert new book info in database
-        const query = `INSERT INTO books (title, author, continent, cover_url, average_rating, year_published, description, goodreads_id)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`
-        pool.query(query, [bookToAdd.title, bookToAdd.author, bookToAdd.continent, bookToAdd.cover_url, bookToAdd.average_rating, bookToAdd.year_published, bookToAdd.description, bookToAdd.goodreadsId])
+        const query = `INSERT INTO books (title, author, continent, cover_url, average_rating, year_published, description, goodreads_id, ratings_count)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`
+        pool.query(query, [bookToAdd.title, bookToAdd.author, bookToAdd.continent, bookToAdd.cover_url, bookToAdd.average_rating, bookToAdd.year_published, bookToAdd.description, bookToAdd.goodreadsId, bookToAdd.ratings_count])
             .then((result) => {
                 console.log('result: ', result);
                 res.sendStatus(200);
