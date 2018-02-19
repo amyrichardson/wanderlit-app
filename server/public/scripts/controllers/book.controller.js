@@ -19,6 +19,33 @@ myApp.controller('BookController', ['UserService', 'BookService', function (User
         BookService.findBooks(bookSearch)
     } //end findBooks
 
+
+    //check if book has already been added to database
+    self.checkBook = function (book, continent) {
+        console.log('checking book: ', book);
+        let bookId = book.best_book.id._text;
+
+        //check if bookId already exists in database
+        for (let i = 0; i < self.books.list.length; i++) {
+            console.log('current book: ', self.books.list[i].goodreads_id);
+            console.log('book id:', bookId);
+            
+            if(bookId == self.books.list[i].goodreads_id) {
+                console.log('MATCH, do not add');
+                swal({
+                    title: 'Oops!',
+                    text: `This book has already been added.`,
+                    icon: 'error',
+                    button: 'OK'
+                  })     
+                return false;
+            } //end if
+            
+        } //end for loop
+        self.addBook(book, continent);
+
+    }
+
     //creates new book object for book service to send to server
     self.addBook = function (book, continent) {
         console.log('book in add book controller: ', book);
