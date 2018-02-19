@@ -1,0 +1,38 @@
+<header ng-include="'/views/partials/admin-header.html'"></header>
+
+<div class="container">
+    <h2 class="single-title">{{vm.singleBook.book.title}}</h2>
+
+    <div class="book-info single-book">
+        <div class="book-details single-details">
+            <div>
+                <img class="book-cover" ng-src="{{vm.singleBook.book.cover_url}}" alt="">
+            </div>
+            <div class="single-info">
+                <h3>Book Information</h3>
+                <p>{{vm.singleBook.book.title}}</p>
+                <p>By {{vm.singleBook.book.author}}</p>
+                <p>{{vm.singleBook.book.continent}}</p>
+                <p><i>Published in {{vm.singleBook.book.year_published}}.</i></p>
+                <div class="single-actions">
+                    <button ng-click="vm.deleteBook(vm.singleBook.book.id)" class="main-btn">Delete</button>
+                </div>
+            </div>
+            <div class="book-description">    
+                <h3>Description</h3>
+                <p ng-bind-html="vm.renderHtml(vm.singleBook.book.description)"></p>
+            </div>
+        </div>
+
+
+        <div class="reviews-container">
+            <h3>Ratings/Reviews</h3>
+            <p>Average Rating: {{vm.singleBook.book.average_rating}}</p>
+            <ul class="reviews-list">
+                <li class="review">"Best book ever!" -User</li>
+                <li class="review">"Beautiful." -AnotherUser</li>
+            </ul>
+        </div>
+    </div>
+
+</div>

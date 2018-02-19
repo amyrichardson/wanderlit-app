@@ -131,6 +131,22 @@ router.delete('/:bookId', (req, res) => {
     }
 })
 
+router.get('/view/:id', (req, res) => {
+    if(req.isAuthenticated()) {
+        console.log('in router with: ', req.params.id);
+        const query = 'SELECT * FROM books WHERE id = $1'
+        pool.query(query, [req.params.id])
+            .then((result) => {
+                res.send(result.rows[0])
+            })
+            .catch((error) => {
+                res.sendStatus(500);
+            })
+    } else {
+        res.sendStatus(403);
+    }
+})
+
 
 
 module.exports = router;

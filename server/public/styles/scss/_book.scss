@@ -1,0 +1,45 @@
+.single-title {
+    @extend %heading;
+}
+
+.single-book {
+    width: 95%;
+}
+
+.single-info {
+    width: 30%;
+}
+
+.book-description {
+    width: 70%;
+}
+
+.single-details {
+    border-bottom: 2px solid $accent-1;
+}
+
+.single-actions {
+    margin-top: 10%;
+    margin-bottom: 20px;
+}
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.review {
+    padding: 30px;
+    margin: 10px;
+    background-color:$primary-medium;
+    width: 90%;
+    border: 2px solid $accent-1;
+}

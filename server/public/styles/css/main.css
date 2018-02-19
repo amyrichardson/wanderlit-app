@@ -20,7 +20,7 @@ body, html {
   background-color: #C9ED67;
   color: #5AAB94; }
 
-.list-heading {
+.list-heading, .single-title {
   width: 70%;
   margin: 30px;
   border-bottom: 2px solid #5AAB94;
@@ -109,37 +109,42 @@ li a:hover {
 .book-info {
   border: 2px solid #C9ED67;
   border-radius: 5px;
-  width: 90%;
+  width: 40%;
   flex-direction: column; }
 
 .book-details {
-  display: flex;
-  width: 400px; }
+  display: flex; }
 
 .book-details > div {
   padding: 0px 20px; }
-
-.main-info {
-  display: flex; }
 
 .book-cover {
   border-radius: 5px;
   object-fit: none;
   margin-top: 20px; }
 
-.book-action {
-  margin-left: 85%; }
-
 .book-title {
   color: #5AAB94; }
 
-.book-description {
-  width: 60%;
+.book-action {
   display: flex;
-  align-items: center; }
+  align-items: baseline; }
 
-.book-description > p {
-  font-size: 10pt; }
+.book-action > a {
+  text-decoration: none;
+  color: #5AAB94;
+  margin: 0px 20px; }
+
+.book-action > a:hover {
+  color: #C9ED67; }
+
+.search-books {
+  width: 90%; }
+
+.add-book {
+  display: flex;
+  flex-direction: column;
+  width: 175px; }
 
 .list-container {
   width: 100%;
@@ -150,7 +155,7 @@ li a:hover {
 .list-info {
   border: 2px solid #C9ED67;
   border-radius: 5px;
-  width: 25%; }
+  width: 30%; }
 
 .list-info > div {
   padding-left: 20px; }
@@ -166,6 +171,40 @@ li a:hover {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%; }
+
+.single-book {
+  width: 95%; }
+
+.single-info {
+  width: 30%; }
+
+.book-description {
+  width: 70%; }
+
+.single-details {
+  border-bottom: 2px solid #5AAB94; }
+
+.single-actions {
+  margin-top: 10%;
+  margin-bottom: 20px; }
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  width: 90%; }
+
+.review {
+  padding: 30px;
+  margin: 10px;
+  background-color: #ECEBF0;
+  width: 90%;
+  border: 2px solid #5AAB94; }
 
 .chart-container {
   background-color: #F8F7FC;

@@ -124,9 +124,12 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
 
 
     //add book to user list
-    self.addBookToList = function(book, userId) {      
-      $http.post(`/lists/${userId}`, book).then(function(response) {
-          self.getUserLists(userId);
+    self.addBookToList = function(book) {   
+      console.log('user id: ', self.userObject.id);
+         
+      $http.post(`/lists/${self.userObject.id}`, book).then(function(response) {
+          self.addBookSnackbar();
+          self.getUserLists(self.userObject.id);
       })
       .catch(function(error) {
           console.log('error adding book to list: ', error);
@@ -135,13 +138,25 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
             text: `Something went wrong. Please try again.`,
             icon: 'error',
             button: 'OK'
-          })   
+          })
       })
   } //end addBookToList
 
+  //show snackbar once book is successfully added to user list
+  self.addBookSnackbar = function () {
+    var x = document.getElementById('snackbar');
+    x.className = 'show';
+    setTimeout(function () {
+        x.className = x.className.replace('show', '');
+    }, 3000);
+} //end addBookSnackbar
 
-  //change book status
-  self.changeBookStatus = function(bookInfo) {
+  //change book status for a user
+  self.changeBookStatus = function(bookId, newStatus) {
+    let bookInfo = {
+      bookId: bookId,
+      newStatus: newStatus
+    }
     $http.put('/lists', bookInfo).then(function(response){
       //update user lists
       self.getUserLists(self.userObject.id);
@@ -188,6 +203,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
   
   } //end removeBookFromLists
 
+  //count books a user read by continent
   self.countBooksRead = function() {
     for (let i = 0; i < self.previouslyRead.list.length; i++) {
       let book = self.previouslyRead.list[i];
@@ -209,7 +225,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
     self.getTotalBooks();
   } //end countBooksRead
 
-  //get total books read
+  //get total books a user has read
   self.getTotalBooks = function () {
     let total = 0;
     for (let i = 0; i < self.bookCount.count.length; i++) {
