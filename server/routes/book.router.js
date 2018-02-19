@@ -147,6 +147,20 @@ router.get('/view/:id', (req, res) => {
     }
 })
 
+router.put('/review', (req, res) => {
+    console.log('in router with: ', req.body);
+    const query = 'UPDATE users_books SET rating = $1, review = $2 WHERE book_id = $3 AND user_id = $4'
+    pool.query(query, [req.body.rating, req.body.review, req.body.book_id, req.user.id])
+        .then((result) => {
+            console.log('success:', result);
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('error: ', error);
+            res.sendStatus(500);
+        })
+})
+
 
 
 module.exports = router;

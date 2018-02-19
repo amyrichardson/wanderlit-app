@@ -1,0 +1,8 @@
+<header ng-include="'/views/partials/user-header.html'"></header>
+
+<h1>review</h1>
+{{vm.singleBook.book.title}} by {{vm.singleBook.book.author}}
+
+<jk-rating-stars rating="review.rating"></jk-rating-stars>
+<input type="text" ng-model="review.text" placeholder="Write your review here.">
+<button class="main-btn" ng-click="vm.addReview(vm.singleBook.book, review)">Submit Review</button>

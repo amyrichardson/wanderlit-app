@@ -85,8 +85,7 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     //     BookService.deleteBook(bookId);
     // } //end deleteBook
 
-
-
+    self.addReview = UserService.addReview;
 
     //functions that get books from database
     //get books from db
