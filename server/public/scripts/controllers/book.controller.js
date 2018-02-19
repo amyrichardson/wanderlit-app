@@ -20,7 +20,6 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     //check if book has already been added to users lists
     self.checkBookLists = function(book) {
         console.log('checking book: ', book);
-
         if(UserService.checkBookLists(book) === true) {
             console.log('book:', book);
             
@@ -33,6 +32,7 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
             })        
             } else {
             UserService.addBookToList(book);
+            self.addBookSnackbar();
             }
         }
     } //end checkBookLists
@@ -48,7 +48,6 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     self.checkBook = function (book, continent) {
         console.log('checking book: ', book);
         let bookId = book.best_book.id._text;
-
         //check if bookId already exists in database
         for (let i = 0; i < self.books.list.length; i++) {
             console.log('current book: ', self.books.list[i].goodreads_id);
@@ -64,9 +63,7 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
                   })     
                 return false;
             } //end if
-            
         } //end for loop
-
         //check if continent was chosen
         if(!continent) {
             swal({
@@ -105,7 +102,7 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
         setTimeout(function () {
             x.className = x.className.replace('show', '');
         }, 3000);
-    }
+    } //end addBookSnackbar
 
 
     //get books from db
