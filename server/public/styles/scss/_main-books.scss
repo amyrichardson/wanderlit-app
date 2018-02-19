@@ -15,21 +15,16 @@
     @extend %book-card;
     border: 2px solid $accent-2;
     border-radius: 5px;
-    width: 90%;
+    width: 40%;
     flex-direction: column;
 }
 
 .book-details {
     display: flex;
-    width: 400px;
 }
 
 .book-details > div {
     padding: 0px 20px;
-}
-
-.main-info {
-    display: flex;
 }
 
 .book-cover {
@@ -38,20 +33,26 @@
     margin-top: 20px;
 }
 
-.book-action {
-    margin-left: 85%;
-}
-
 .book-title {
     color: $accent-1;
 }
 
-.book-description {
-    width: 60%;
+.book-action {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0px 20px;
 }
 
-.book-description > p {
-    font-size: 10pt;
+.book-action > a {
+    text-decoration: none;
+    color: $accent-1;
+}
+
+.book-action > a:hover {
+    color: $accent-2;
+}
+
+.search-books {
+    width: 90%;
 }

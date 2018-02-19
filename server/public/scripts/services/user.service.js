@@ -124,9 +124,11 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
 
 
     //add book to user list
-    self.addBookToList = function(book, userId) {      
-      $http.post(`/lists/${userId}`, book).then(function(response) {
-          self.getUserLists(userId);
+    self.addBookToList = function(book) {   
+      console.log('user id: ', self.userObject.id);
+         
+      $http.post(`/lists/${self.userObject.id}`, book).then(function(response) {
+          self.getUserLists(self.userObject.id);
       })
       .catch(function(error) {
           console.log('error adding book to list: ', error);

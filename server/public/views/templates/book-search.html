@@ -26,21 +26,20 @@
                         <p>Rating: {{book.average_rating}}</p>
                         <p>Published: {{book.year_published}}</p>
                         <p>{{book.continent}}</p>
-                        <a href="#!book/{{book.id}}">More details</a>
                     </div>
-                </div>
-                <div class="book-description">
-                    <p ng-maxlength="100" ng-bind-html="vm.renderHtml(book.description)"></p>
                 </div>
             </div>
             <div class="book-action">
-                <select ng-model="book.status">
-                    <option value="">Select a list</option>
-                    <option value="to_read">To Read</option>
-                    <option value="currently_reading">Currently Reading</option>
-                    <option value="previously_read">Previously Read</option>
-                </select>
-                <button ng-click="vm.checkBookLists(book)" class="main-btn">Add</button>
+                <a href="#!book/{{book.id}}">More Details</a>
+                <div>
+                    <select ng-model="book.status">
+                        <option value="">Select a list</option>
+                        <option value="to_read">To Read</option>
+                        <option value="currently_reading">Currently Reading</option>
+                        <option value="previously_read">Previously Read</option>
+                    </select>
+                    <button ng-click="vm.checkBookLists(book)" class="main-btn">Add</button>
+                </div>
             </div>
         </div>
     </div>

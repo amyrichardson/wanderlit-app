@@ -4,7 +4,7 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     self.userService = UserService;
 
 
-    //book lists
+    //book vars
     self.bookService = BookService;
     self.goodreadsBooks = BookService.goodreadsBooks;
     self.books = BookService.books;
@@ -12,7 +12,30 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     
     //continent list
     self.continents = BookService.continents;
+
+    //render html for book descriptions
     self.renderHtml = BookService.renderHtml;
+
+    //user functions
+    //check if book has already been added to users lists
+    self.checkBookLists = function(book) {
+        console.log('checking book: ', book);
+
+        if(UserService.checkBookLists(book) === true) {
+            console.log('book:', book);
+            
+            if(!book.status) {
+            swal({
+                title: 'Oops!',
+                text: `Please select which list you'd like to add this book to.`,
+                icon: 'error',
+                button: 'OK'
+            })        
+            } else {
+            UserService.addBookToList(book);
+            }
+        }
+    } //end checkBookLists
 
 
     //sends book search info to BookService

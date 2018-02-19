@@ -15,8 +15,8 @@
             </div>
         </div>
 </div>
-<div class="book-container" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating' ">
-    <div class="book-info">
+<div class="book-container">
+    <div class="book-info" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating' ">
         <div class="main-info">
             <div class="book-details">
                 <div>
@@ -30,11 +30,9 @@
                     <p>{{book.continent}}</p>
                 </div>
             </div>
-            <div class="book-description">
-                <p ng-bind-html="vm.renderHtml(book.description)"></p>
-            </div>
         </div>
-        <div class="book-action">            
+        <div class="book-action"> 
+            <a href="#!/book/{{book.id}}">More Details</a>           
             <button ng-click="vm.deleteBook(book.id)" class="main-btn">Delete</button>
         </div>
     </div>

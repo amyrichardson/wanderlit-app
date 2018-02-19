@@ -32,23 +32,23 @@ myApp.controller('UserController', ['UserService', 'BookService', function(UserS
 
   //check if book has already been added to users lists
   self.checkBookLists = function(book) {
-    console.log('checking book: ', book);
-    
-    if(UserService.checkBookLists(book) === true) {
-      console.log('book:', book);
+      console.log('checking book: ', book);
       
-      if(!book.status) {
-        swal({
-          title: 'Oops!',
-          text: `Please select which list you'd like to add this book to.`,
-          icon: 'error',
-          button: 'OK'
-        })        
-      } else {
-        self.addBookToList(book);
+      if(UserService.checkBookLists(book) === true) {
+        console.log('book:', book);
+        
+        if(!book.status) {
+          swal({
+            title: 'Oops!',
+            text: `Please select which list you'd like to add this book to.`,
+            icon: 'error',
+            button: 'OK'
+          })        
+        } else {
+          self.addBookToList(book);
+        }
       }
-    }
-  }
+    } //end checkBookLists
 
   //add book to user list
   self.addBookToList = function(book) {

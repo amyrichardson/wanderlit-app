@@ -18,7 +18,7 @@
 
 <div class="book-container">
     <h2 class="list-heading" ng-if="vm.goodreadsBooks.list.length > 0">Search Results</h2>
-    <div class="book-info" ng-repeat="book in vm.goodreadsBooks.list">
+    <div class="book-info search-books" ng-repeat="book in vm.goodreadsBooks.list">
         <div class="main-info">
             <div class="book-details">
                 <div>
@@ -37,10 +37,12 @@
         </div>
         
         <div class="book-action">
-        <select ng-model="book.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
-                <option value="">Select a continent</option>
-        </select>  
-        <button class="main-btn" ng-click="vm.checkBook(book, book.selectedContinent)">Add Book</button>
+            <div>
+                <select ng-model="book.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
+                        <option value="">Select a continent</option>
+                </select>  
+                <button class="main-btn" ng-click="vm.checkBook(book, book.selectedContinent)">Add Book</button>
+            </div>
         </div>
     </div>
 </div>
