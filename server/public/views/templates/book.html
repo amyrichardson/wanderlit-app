@@ -1,0 +1,12 @@
+<header ng-include="'/views/partials/user-header.html'"></header>
+
+<h1>SINGLE BOOK</h1>
+
+<img ng-src="{{vm.singleBook.book.cover_url}}" alt="">
+<h2>{{vm.singleBook.book.title}}</h2>
+<p>{{vm.singleBook.book.author}}</p>
+<p>{{vm.singleBook.book.continent}}</p>
+<p>{{vm.singleBook.book.average_rating}}</p>
+<p>{{vm.singleBook.book.year_published}}</p>
+<p ng-bind-html="vm.renderHtml(vm.singleBook.book.description)"></p>
+

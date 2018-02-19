@@ -26,10 +26,11 @@
                         <p>Rating: {{book.average_rating}}</p>
                         <p>Published: {{book.year_published}}</p>
                         <p>{{book.continent}}</p>
+                        <a href="#!book/{{book.id}}">More details</a>
                     </div>
                 </div>
                 <div class="book-description">
-                    <p ng-bind-html="vm.renderHtml(book.description)"></p>
+                    <p ng-maxlength="100" ng-bind-html="vm.renderHtml(book.description)"></p>
                 </div>
             </div>
             <div class="book-action">

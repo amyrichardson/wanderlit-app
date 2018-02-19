@@ -54,6 +54,10 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/book/:id', {
+      templateUrl: 'views/templates/book.html',
+      controller: 'BookController as vm'
+    })
     .when('/manage-books', {
       templateUrl: '/views/templates/manage-books.html',
       controller: 'BookController as vm',

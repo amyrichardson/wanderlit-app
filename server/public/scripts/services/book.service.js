@@ -6,6 +6,7 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
 
     self.goodreadsBooks = { list: [] };
     self.books = { list: [] };
+    self.singleBook = { book: []};
     self.continents = { list: [
             {name: 'Africa' },
             {name: 'Asia'}, 
@@ -120,7 +121,24 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
                 console.log('error: ', error);
             })
         }        
-    }
+    } //end get Books
+
+    //end getSingleBook
+    self.getSingleBook = function(bookId) {
+        console.log('in service getting single book: ', bookId);
+        
+
+        $http.get(`/books/view/${bookId}`)
+        .then(function (response) {
+            self.singleBook.book = response.data;
+            console.log('single book: ', self.singleBook);
+            
+        })
+        .catch(function (error) {
+            console.log('error on get book', error);
+        });
+
+    } //end getSingleBook
 
     //on load
     self.getBooks();

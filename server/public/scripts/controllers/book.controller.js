@@ -1,4 +1,4 @@
-myApp.controller('BookController', ['UserService', 'BookService', function (UserService, BookService) {
+myApp.controller('BookController', ['UserService', 'BookService', '$routeParams', function (UserService, BookService, $routeParams) {
     console.log('BookController created');
     var self = this;
     self.userService = UserService;
@@ -8,7 +8,8 @@ myApp.controller('BookController', ['UserService', 'BookService', function (User
     self.bookService = BookService;
     self.goodreadsBooks = BookService.goodreadsBooks;
     self.books = BookService.books;
-
+    self.singleBook = BookService.singleBook;
+    
     //continent list
     self.continents = BookService.continents;
     self.renderHtml = BookService.renderHtml;
@@ -90,9 +91,24 @@ myApp.controller('BookController', ['UserService', 'BookService', function (User
         BookService.getBooks(continent);
     } //end getBooks
 
+
+    // get one book
+    self.getSingleBook = function(bookId) {
+        console.log('getting single game with id of: ', bookId);
+        BookService.getSingleBook(bookId)
+    }//end getSingleBook
+
+
     self.deleteBook = function (bookId) {
         console.log('deleting book', bookId);
         BookService.deleteBook(bookId);
+    } //end getSingleBook
+
+    // do we want one book or all games?
+    if($routeParams.id) {
+        self.getSingleBook($routeParams.id);
+    } else {
+        self.getBooks();
     }
 
 }]);
