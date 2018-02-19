@@ -35,8 +35,7 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
         }
     } //end checkBookLists
 
-
-
+    
     //admin functions
     //sends book search info to BookService
     self.findBooks = BookService.findBooks;
@@ -80,26 +79,29 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     self.addBook = BookService.addBook;
     
     //delete book from database
-    self.deleteBook = function (bookId) {
-        console.log('deleting book', bookId);
-        BookService.deleteBook(bookId);
-    } //end deleteBook
+    self.deleteBook = BookService.deleteBook;
+    // self.deleteBook = function (bookId) {
+    //     console.log('deleting book', bookId);
+    //     BookService.deleteBook(bookId);
+    // } //end deleteBook
 
 
 
 
     //functions that get books from database
     //get books from db
-    self.getBooks = function (continent) {
-        console.log('getting books for: ', continent);
-        BookService.getBooks(continent);
-    } //end getBooks
+    self.getBooks = BookService.getBooks;
+    // self.getBooks = function (continent) {
+    //     console.log('getting books for: ', continent);
+    //     BookService.getBooks(continent);
+    // } //end getBooks
 
     // get one book
-    self.getSingleBook = function(bookId) {
-        console.log('getting single game with id of: ', bookId);
-        BookService.getSingleBook(bookId)
-    }//end getSingleBook
+    self.getSingleBook = BookService.getSingleBook;
+    // self.getSingleBook = function(bookId) {
+    //     console.log('getting single game with id of: ', bookId);
+    //     BookService.getSingleBook(bookId)
+    // }//end getSingleBook
 
     // do we want one book or all games?
     if($routeParams.id) {

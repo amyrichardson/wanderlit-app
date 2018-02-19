@@ -185,7 +185,8 @@ li a:hover {
   border-bottom: 2px solid #5AAB94; }
 
 .single-actions {
-  margin-top: 20%; }
+  margin-top: 10%;
+  margin-bottom: 20px; }
 
 .reviews-container {
   display: flex;
