@@ -27,7 +27,7 @@
                     <button ng-click="vm.checkBookLists(vm.singleBook.book)" class="main-btn">Add</button>
                 </div>
             </div>
-            <div class="book-description">    
+            <div class="single-description">    
                 <h3>Description</h3>
                 <p ng-bind-html="vm.renderHtml(vm.singleBook.book.description)"></p>
             </div>
@@ -37,10 +37,12 @@
             <h3>Ratings/Reviews</h3>
             <jk-rating-stars max-rating="5" rating="vm.singleBook.book.average_rating" read-only="true"></jk-rating-stars>
             <p>Average Rating: {{vm.singleBook.book.average_rating}}</p>
-            <ul class="reviews-list">
-                <li class="review">"Best book ever!" -User</li>
-                <li class="review">"Beautiful." -AnotherUser</li>
-            </ul>
+            <div class="reviews-list">
+                <div class="review" ng-repeat="review in vm.bookReviews.list">
+                    <p>"{{review.review}}" -{{review.username}}</p>
+                    <p>({{review.rating}}/5 stars)</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -7,6 +7,7 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
     self.goodreadsBooks = { list: [] };
     self.books = { list: [] };
     self.singleBook = { book: []};
+    self.bookReviews = { list: [] };
     self.continents = { list: [
             {name: 'Africa' },
             {name: 'Asia'}, 
@@ -145,18 +146,35 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
 
     //end getSingleBook
     self.getSingleBook = function(bookId) {
+        self.bookReviews.list = [];
         console.log('in service getting single book: ', bookId);
         $http.get(`/books/view/${bookId}`)
-        .then(function (response) {
-            self.singleBook.book = response.data;
-            console.log('single book: ', self.singleBook);
-            
-        })
-        .catch(function (error) {
-            console.log('error on get book', error);
-        });
-
+            .then(function (response) {
+                self.singleBook.book = response.data;
+                console.log('single book: ', self.singleBook);
+                self.getBookReviews(bookId);
+            })
+            .catch(function (error) {
+                console.log('error on get book', error);
+            });
     } //end getSingleBook
+
+    //get book reviews given bookid
+    self.getBookReviews = function(bookId) {
+        $http.get(`/books/review/${bookId}`)
+            .then(function(response){
+                //find the reviews/ratings that are not null
+                for (let i = 0; i < response.data.length; i++) {
+                    if(response.data[i].rating && response.data[i].review){
+                        //push them into the bookReview array
+                        self.bookReviews.list.push(response.data[i]);
+                    } //end if                  
+                } //end loop
+            })
+            .catch(function(error){
+                console.log('error getting reviews:', error);
+            })
+    } //end getBookReviews
 
     //on load
     self.getBooks();

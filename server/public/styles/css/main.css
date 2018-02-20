@@ -124,11 +124,14 @@ li a:hover {
   margin-top: 20px; }
 
 .book-title {
-  color: #5AAB94; }
+  color: #5AAB94;
+  font-size: 14pt; }
 
 .book-action {
+  width: 100%;
   display: flex;
-  align-items: baseline; }
+  align-items: baseline;
+  justify-content: center; }
 
 .book-action > a {
   text-decoration: none;
@@ -146,6 +149,18 @@ li a:hover {
   flex-direction: column;
   width: 175px; }
 
+.book-description {
+  width: 70%; }
+
+.info-container {
+  width: 30%; }
+
+.details-link {
+  text-decoration: none; }
+
+.details-link:hover {
+  color: #C9ED67; }
+
 .list-container {
   width: 100%;
   display: flex;
@@ -155,7 +170,8 @@ li a:hover {
 .list-info {
   border: 2px solid #C9ED67;
   border-radius: 5px;
-  width: 30%; }
+  width: 40%;
+  align-items: center; }
 
 .list-info > div {
   padding-left: 20px; }
@@ -172,13 +188,16 @@ li a:hover {
   justify-content: center;
   width: 100%; }
 
+.action {
+  margin: 10px; }
+
 .single-book {
   width: 95%; }
 
 .single-info {
   width: 30%; }
 
-.book-description {
+.single-description {
   width: 70%; }
 
 .single-details {

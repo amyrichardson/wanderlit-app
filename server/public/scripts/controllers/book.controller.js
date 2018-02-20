@@ -8,7 +8,8 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     self.goodreadsBooks = BookService.goodreadsBooks;
     self.books = BookService.books;
     self.singleBook = BookService.singleBook;
-    
+    self.bookReviews = BookService.bookReviews;
+
     //continent list
     self.continents = BookService.continents;
 
@@ -80,27 +81,16 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     
     //delete book from database
     self.deleteBook = BookService.deleteBook;
-    // self.deleteBook = function (bookId) {
-    //     console.log('deleting book', bookId);
-    //     BookService.deleteBook(bookId);
-    // } //end deleteBook
 
+    //review functionality
     self.addReview = UserService.addReview;
 
     //functions that get books from database
     //get books from db
     self.getBooks = BookService.getBooks;
-    // self.getBooks = function (continent) {
-    //     console.log('getting books for: ', continent);
-    //     BookService.getBooks(continent);
-    // } //end getBooks
 
     // get one book
     self.getSingleBook = BookService.getSingleBook;
-    // self.getSingleBook = function(bookId) {
-    //     console.log('getting single game with id of: ', bookId);
-    //     BookService.getSingleBook(bookId)
-    // }//end getSingleBook
 
     // do we want one book or all games?
     if($routeParams.id) {

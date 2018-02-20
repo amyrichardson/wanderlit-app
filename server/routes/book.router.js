@@ -161,6 +161,22 @@ router.put('/review', (req, res) => {
         })
 })
 
+//get reviews for one book
+router.get('/review/:id', (req, res) => {
+    console.log('in router with:', req.params.id);
+    const query = 'SELECT rating, review, username FROM users_books JOIN users ON users_books.user_id = users.id WHERE book_id = $1'
+    pool.query(query, [req.params.id])
+        .then((result) => {
+            console.log('query result:', result);
+            res.send(result.rows);
+            
+        })
+        .catch((error) => {
+            console.log('error:', error);
+            res.sendStatus(500);
+        })
+
+})
 
 
 module.exports = router;

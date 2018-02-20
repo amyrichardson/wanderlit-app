@@ -14,11 +14,10 @@
             <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
         </div>
         <div>
-            <p class="book-title">{{book.title}}</p>
+            <a href="#!book/{{book.book_id}}" class="book-title details-link">{{book.title}}</a>
             <p>By {{book.author}}</p>
             <p>{{book.continent}}</p>
             <div class="book-action">
-                <a href="#!book/{{book.book_id}}">More Details</a>
                 <div>
                     <button ng-click="vm.changeBookStatus(book.book_id, 'previously_read')" class="main-btn">Mark Complete</button>
                     <button ng-click="vm.changeBookStatus(book.book_id, 'to_read')" class="main-btn">Stop Reading</button>
@@ -40,11 +39,10 @@
                 <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
             </div>
             <div>
-                <p class="book-title">{{book.title}}</p>
+                <a href="#!book/{{book.book_id}}" class="book-title details-link">{{book.title}}</a>
                 <p>By {{book.author}}</p>
                 <p>{{book.continent}}</p>
                 <div class="book-action">
-                    <a href="#!book/{{book.book_id}}">More Details</a>
                     <div>
                         <button ng-click="vm.changeBookStatus(book.book_id, 'currently_reading')" class="main-btn">Start Reading</button>
                         <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button> 
@@ -72,16 +70,13 @@
                 <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
             </div>
             <div>
-                <p class="book-title">{{book.title}}</p>
+                <a class="book-title details-link" href="#!book/{{book.book_id}}">{{book.title}}</a>
                 <p>By {{book.author}}</p>
                 <p>{{book.continent}}</p>
-                <a ng-if="!book.rating" href="#!book/{{book.book_id}}/review">Rate/Review</a>
-                <jk-rating-stars ng-if="book.rating" rating="book.rating" read-only="true" ></jk-rating-stars>
                 <div class="book-action">
-                    <a href="#!book/{{book.book_id}}">More Details</a>
-                    <div>
-                        <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button>
-                    </div> 
+                    <jk-rating-stars class="action" ng-if="book.rating" rating="book.rating" read-only="true" ></jk-rating-stars>
+                    <a class="action" ng-if="!book.rating" href="#!book/{{book.book_id}}/review">Rate/Review</a>
+                    <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn action">Delete</button>
                 </div>
             </div> 
         </div>
