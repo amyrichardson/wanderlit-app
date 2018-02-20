@@ -8,7 +8,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
   self.previouslyRead = { list: [] };
   self.bookCount = { count: [0, 0, 0, 0, 0, 0] };
   self.totalBooksRead = {total: []};
-
+  
   //gets regular user
   self.getuser = function(){
     $http.get('/api/user').then(function(response) {
