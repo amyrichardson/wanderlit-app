@@ -19,10 +19,7 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     //user functions
     //check if book has already been added to users lists
     self.checkBookLists = function(book) {
-        console.log('checking book: ', book);
-        if(UserService.checkBookLists(book) === true) {
-            console.log('book:', book);
-            
+        if(UserService.checkBookLists(book) === true) {            
             if(!book.status) {
             swal({
                 title: 'Oops!',
@@ -43,15 +40,11 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
 
     //check if book has already been added to database
     self.checkBook = function (book, continent) {
-        console.log('checking book: ', book);
         let bookId = book.best_book.id._text;
         //check if bookId already exists in database
-        for (let i = 0; i < self.books.list.length; i++) {
-            console.log('current book: ', self.books.list[i].goodreads_id);
-            console.log('book id:', bookId);
-            
+        for (let i = 0; i < self.books.list.length; i++) {  
             if(bookId == self.books.list[i].goodreads_id) {
-                console.log('MATCH, do not add');
+                //if bookId already exists, alert user
                 swal({
                     title: 'Oops!',
                     text: `This book has already been added.`,
@@ -70,8 +63,7 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
                 button: 'OK'
               })     
         } else {
-            console.log('adding book');
-            
+            //if the bookId is unique, add the book to the database
             self.addBook(book, continent);
         }
     } //end checkBook

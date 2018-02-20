@@ -83,3 +83,24 @@ select {
     @extend %input;
     background-color: $primary-light;
 }
+
+.review-form {
+    @extend %form;
+    position: relative;
+    width: 80%;
+    height: 250px;
+    justify-content: flex-start;
+}
+
+.review-text {
+    font-size: 12pt;
+    width: 50%;
+    top: 70px;
+    outline: 0;
+    border: 0;
+    border: 4px solid $accent-2;
+    background-color: $primary-light;
+    position: absolute;
+}
+
+

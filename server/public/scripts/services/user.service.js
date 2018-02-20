@@ -84,7 +84,6 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
   
   //check if user has already added book to list
   self.checkBookLists = function(book){
-    console.log('service checking book list', book);
     for (let i = 0; i < self.currentlyReading.list.length; i++) {      
       if(book.id === self.currentlyReading.list[i].book_id) {
         swal({
@@ -124,9 +123,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
 
 
     //add book to user list
-    self.addBookToList = function(book) {   
-      console.log('user id: ', self.userObject.id);
-         
+    self.addBookToList = function(book) {            
       $http.post(`/lists/${self.userObject.id}`, book).then(function(response) {
           self.addBookSnackbar();
           self.getUserLists(self.userObject.id);
@@ -236,7 +233,6 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
 
   //user adds rating to book
   self.addReview = function(book, review) {
-    console.log('rating book:', book, review);
     let newRatingInfo = {
       average_rating: (book.average_rating * book.ratings_count + review.rating) / (book.ratings_count + 1),
       ratings_count: book.ratings_count + 1,
@@ -245,10 +241,11 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
       book_id: book.id
     }
     $http.put('/books/review', newRatingInfo).then(function(response) {
-      console.log('response:', response);
+      //update user lists once the review is added
       self.getUserLists(self.userObject.id);
-      console.log(self.previouslyRead.list);
+      //send user back to their book-lists
       $location.path('/book-lists');
+      //alert success
       swal('Your review was successfully added!')
     })
     .catch(function(error){

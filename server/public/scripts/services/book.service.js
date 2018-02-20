@@ -147,11 +147,9 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
     //end getSingleBook
     self.getSingleBook = function(bookId) {
         self.bookReviews.list = [];
-        console.log('in service getting single book: ', bookId);
         $http.get(`/books/view/${bookId}`)
             .then(function (response) {
                 self.singleBook.book = response.data;
-                console.log('single book: ', self.singleBook);
                 self.getBookReviews(bookId);
             })
             .catch(function (error) {

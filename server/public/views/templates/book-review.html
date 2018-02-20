@@ -1,8 +1,12 @@
 <header ng-include="'/views/partials/user-header.html'"></header>
 
-<h1>review</h1>
-{{vm.singleBook.book.title}} by {{vm.singleBook.book.author}}
+<div class="container">
+    <h3 class="list-heading">Reviewing {{vm.singleBook.book.title}} by {{vm.singleBook.book.author}}</h3>
+    <form class="review-form">
+        <label>Please select a star rating:</label>
+        <jk-rating-stars class="review-stars" rating="review.rating"></jk-rating-stars>
+        <textarea class="review-text" rows="6" ng-model="review.text" placeholder="Write your review here."></textarea>
+    </form>
+    <button class="main-btn submit-review" ng-click="vm.addReview(vm.singleBook.book, review)">Submit Review</button>
+</div>
 
-<jk-rating-stars rating="review.rating"></jk-rating-stars>
-<input type="text" ng-model="review.text" placeholder="Write your review here.">
-<button class="main-btn" ng-click="vm.addReview(vm.singleBook.book, review)">Submit Review</button>
