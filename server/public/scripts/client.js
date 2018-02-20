@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'chart.js']);
+var myApp = angular.module('myApp', ['ngRoute', 'chart.js', 'jkAngularRatingStars']);
 
 myApp.config(['ChartJsProvider', function (ChartJsProvider) {
   // Configure all charts
@@ -56,6 +56,15 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/book/:id', {
       templateUrl: 'views/templates/book.html',
+      controller: 'BookController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/book/:id/review', {
+      templateUrl: 'views/templates/book-review.html',
       controller: 'BookController as vm',
       resolve: {
         getuser : function(UserService){

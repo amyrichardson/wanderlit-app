@@ -8,7 +8,7 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
   self.previouslyRead = { list: [] };
   self.bookCount = { count: [0, 0, 0, 0, 0, 0] };
   self.totalBooksRead = {total: []};
-
+  
   //gets regular user
   self.getuser = function(){
     $http.get('/api/user').then(function(response) {
@@ -234,6 +234,32 @@ myApp.service('UserService', ['$http', '$location', function($http, $location){
     self.totalBooksRead.total.push(total);    
   } //end getTotalBooks
 
-  
+  //user adds rating to book
+  self.addReview = function(book, review) {
+    console.log('rating book:', book, review);
+    let newRatingInfo = {
+      average_rating: (book.average_rating * book.ratings_count + review.rating) / (book.ratings_count + 1),
+      ratings_count: book.ratings_count + 1,
+      rating: review.rating,
+      review: review.text,
+      book_id: book.id
+    }
+    $http.put('/books/review', newRatingInfo).then(function(response) {
+      console.log('response:', response);
+      self.getUserLists(self.userObject.id);
+      console.log(self.previouslyRead.list);
+      $location.path('/book-lists');
+      swal('Your review was successfully added!')
+    })
+    .catch(function(error){
+      console.log('error', error);
+      swal({
+        title: 'Uh oh.',
+        text: `Something went wrong. Please try again.`,
+        icon: 'error',
+        button: 'OK'
+      })   
+    })
+  } //end addRating
 
 }]);

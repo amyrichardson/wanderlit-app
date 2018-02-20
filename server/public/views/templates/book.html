@@ -33,9 +33,9 @@
             </div>
         </div>
 
-
         <div class="reviews-container">
             <h3>Ratings/Reviews</h3>
+            <jk-rating-stars max-rating="5" rating="vm.singleBook.book.average_rating" read-only="true"></jk-rating-stars>
             <p>Average Rating: {{vm.singleBook.book.average_rating}}</p>
             <ul class="reviews-list">
                 <li class="review">"Best book ever!" -User</li>
@@ -43,5 +43,4 @@
             </ul>
         </div>
     </div>
-
 </div>
