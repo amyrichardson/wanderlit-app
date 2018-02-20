@@ -27,6 +27,15 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as vm'
     })
+    .when('/profile', {
+      templateUrl: '/views/templates/profile.html',
+      controller: 'UserController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/book-lists', {
       templateUrl: '/views/templates/book-lists.html',
       controller: 'UserController as vm',
