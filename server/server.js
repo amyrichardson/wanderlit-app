@@ -1,10 +1,9 @@
+const env = require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const passport = require('./strategies/sql.localstrategy');
 const sessionConfig = require('./modules/session-middleware');
-const env = require('dotenv');
-env.config();
 
 // Route includes
 const userRouter = require('./routes/user.router');

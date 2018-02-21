@@ -36,6 +36,9 @@ body, html {
   font-size: 42pt;
   line-height: 0; }
 
+#mapid {
+  height: 500px; }
+
 .header h1 {
   font-family: "Satisfy", cursive;
   font-size: 42pt;
