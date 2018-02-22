@@ -20,13 +20,13 @@ body, html {
   background-color: #C9ED67;
   color: #5AAB94; }
 
-.list-heading, .single-title {
+.heading, .single-title {
   width: 70%;
   margin: 30px;
   border-bottom: 2px solid #5AAB94;
   text-align: center; }
 
-.container {
+.container, .list-container, .reviews-container, .chart-container, .form, .review-form {
   display: flex;
   flex-direction: column;
   align-items: center; }
@@ -131,10 +131,10 @@ li a:hover {
   font-size: 14pt; }
 
 .book-action {
-  width: 100%;
+  width: 95%;
   display: flex;
-  align-items: baseline;
-  justify-content: center; }
+  justify-content: flex-end;
+  margin-bottom: 10px; }
 
 .book-action > a {
   text-decoration: none;
@@ -165,10 +165,7 @@ li a:hover {
   color: #C9ED67; }
 
 .list-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
+  width: 100%; }
 
 .list-info {
   border: 2px solid #C9ED67;
@@ -211,9 +208,6 @@ li a:hover {
   margin-bottom: 20px; }
 
 .reviews-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center; }
 
 .reviews-list {
@@ -237,19 +231,8 @@ li a:hover {
   margin-bottom: 20px;
   text-align: center; }
 
-.chart-container > h1 {
-  width: 50%;
-  margin: 0 auto;
-  border-bottom: 2px solid #5AAB94;
-  padding: 10px; }
-
 .chart-pie {
   padding: 20px; }
-
-.continent-list {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 80px; }
 
 .filter-medium, .user-input, .filter {
   outline: 0;
@@ -260,11 +243,8 @@ li a:hover {
   border-bottom: 2px solid #5AAB94;
   margin: 10px 0px; }
 
-.user-form, .search-form, .review-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
+.form, .review-form {
+  justify-content: center; }
 
 select {
   outline: 0;

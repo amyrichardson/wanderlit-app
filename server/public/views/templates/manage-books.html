@@ -3,8 +3,8 @@
 
 <!-- Manage books section -->
 <div class="container">
-    <h2 class="list-heading">Manage Books</h2>
-        <div class="search-form">
+    <h2 class="heading">Manage Books</h2>
+        <div class="form">
             <div>
                 <select ng-change="vm.getBooks(vm.selectedContinent)" ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
                     <option value="">All continents</option>
@@ -23,7 +23,7 @@
                     <img class="book-cover" ng-src="{{book.cover_url}}" alt="">
                 </div>
                 <div>
-                    <h3 class="book-title">{{book.title}}</h3>
+                    <a href="#!/manage-book/{{book.id}}" class="book-title details-link">{{book.title}}</a>
                     <p>By {{book.author}}</p>
                     <p>Rating: {{book.average_rating}}</p>
                     <p>Published: {{book.year_published}}</p>
@@ -32,7 +32,6 @@
             </div>
         </div>
         <div class="book-action"> 
-            <a href="#!/manage-book/{{book.id}}">More Details</a>           
             <button ng-click="vm.deleteBook(book.id)" class="main-btn">Delete</button>
         </div>
     </div>

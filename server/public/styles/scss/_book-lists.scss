@@ -1,13 +1,7 @@
 //Book list view styles
 .list-container {
+    @extend %container;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.list-heading {
-    @extend %heading;
 }
 
 .list-info {

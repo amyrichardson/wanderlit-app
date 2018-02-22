@@ -9,10 +9,8 @@
 }
 
 %form {
-    display: flex;
-    flex-direction: column;
+    @extend %container;
     justify-content: center;
-    align-items: center;
 }
 
 select {
@@ -29,7 +27,7 @@ select {
     background-color: $primary-medium;
 }
 
-.user-form {
+.form {
     @extend %form;
 }
 
@@ -73,10 +71,6 @@ select {
 
 .form-btn:hover {
     @extend %button-hover;
-}
-
-.search-form {
-    @extend %form;
 }
 
 .filter {

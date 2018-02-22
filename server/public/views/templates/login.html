@@ -1,9 +1,9 @@
 <header ng-include="'/views/partials/main-header.html'"></header>
 
 <div class="form-container">
-    <h1 class="display">login</h1>
-    <h1 class="user-alert" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
-    <form class="user-form" ng-submit="vm.login()">
+    <form class="form" ng-submit="vm.login()">
+        <h1 class="display">login</h1>
+        <h1 class="user-alert" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
         <div>
             <input class="user-input" type="text" ng-model="vm.user.username" placeholder="Username" />
         </div>
@@ -14,6 +14,5 @@
             <button class="form-btn" type="submit" name="submit">Login</button>
             <a class="form-link" href="#!register">Register</a>
         </div>
-    </form>
-        
+    </form>      
 </div>

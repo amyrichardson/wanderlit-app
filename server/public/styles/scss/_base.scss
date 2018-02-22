@@ -31,10 +31,18 @@ body, html {
     text-align: center;
 }
 
-.container {
+.heading {
+    @extend %heading;
+}
+
+%container {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.container {
+    @extend %container;
 }
 
 .main-btn {

@@ -10,10 +10,10 @@
             </div>
             <div class="single-info">
                 <h3>Book Information</h3>
-                <p>{{vm.singleBook.book.title}}</p>
+                <p><i>{{vm.singleBook.book.title}}</i></p>
                 <p>By {{vm.singleBook.book.author}}</p>
                 <p>{{vm.singleBook.book.continent}}</p>
-                <p><i>Published in {{vm.singleBook.book.year_published}}.</i></p>
+                <p>Published in {{vm.singleBook.book.year_published}}.</p>
                 <div class="single-actions">
                     <button ng-click="vm.deleteBook(vm.singleBook.book.id)" class="main-btn">Delete</button>
                 </div>
