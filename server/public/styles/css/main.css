@@ -228,11 +228,41 @@ li a:hover {
   margin: 0 auto;
   border: 2px solid #C9ED67;
   margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: center; }
+  margin-bottom: 20px; }
 
 .chart-pie {
   padding: 20px; }
+
+.continent-key {
+  display: flex;
+  justify-content: space-between;
+  width: 40%; }
+
+.continent-list {
+  display: flex;
+  flex-direction: column; }
+
+.key-icon {
+  font-size: 10pt;
+  padding: 0px 8px; }
+
+#africa-key {
+  color: #ACE8CD; }
+
+#asia-key {
+  color: #524A36; }
+
+#australia-key {
+  color: #C9ED67; }
+
+#europe-key {
+  color: #5AAB94; }
+
+#northamerica-key {
+  color: #9C9582; }
+
+#southamerica-key {
+  color: #88A146; }
 
 .filter-medium, .user-input, .filter {
   outline: 0;

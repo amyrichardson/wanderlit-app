@@ -3,7 +3,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'chart.js', 'jkAngularRatingStar
 myApp.config(['ChartJsProvider', function (ChartJsProvider) {
   // Configure all charts
   ChartJsProvider.setOptions({
-    chartColors: ['#ACE8CD', '#5AAB94', '#C9ED67', '#9C9582', '#524A36', '#88A146'],
+    chartColors: ['#ACE8CD', '#524A36', '#C9ED67', '#5AAB94', '#9C9582', '#88A146'],
     responsive: true
   });
 }]);
@@ -45,8 +45,8 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
-    .when('/book-search', {
-      templateUrl: '/views/templates/book-search.html',
+    .when('/book-browse', {
+      templateUrl: '/views/templates/book-browse.html',
       controller: 'UserController as vm',
       resolve: {
         getuser : function(UserService){
