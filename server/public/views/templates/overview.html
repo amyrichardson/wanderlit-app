@@ -15,8 +15,8 @@
       <li><i id="southamerica-key" class="key-icon fas fa-square"></i>South America - {{vm.data[5]}} book<span ng-if="vm.data[5] > 1">s</span></li>
     </div>
   </ul>
-  <canvas ng-if="vm.totalBooksRead.total[0] > 0" id="pie" class="chart chart-pie"
-  chart-data="vm.data" chart-labels="vm.labels" chart-options="options">
+  <canvas ng-if="vm.totalBooksRead.total[0] > 0" id="doughnut" class="chart chart-doughnut"
+  chart-data="vm.data" chart-labels="vm.labels" chart-options="vm.options">
   </canvas>
   <div ng-if="vm.totalBooksRead.total[0] == 0">
     <p>You haven't added any books to your 'Previously Read' list yet. Once you add a book, we'll show you your overview.</p>

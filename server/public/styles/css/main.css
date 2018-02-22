@@ -230,9 +230,6 @@ li a:hover {
   margin-top: 20px;
   margin-bottom: 20px; }
 
-.chart-pie {
-  padding: 20px; }
-
 .continent-key {
   display: flex;
   justify-content: space-between;

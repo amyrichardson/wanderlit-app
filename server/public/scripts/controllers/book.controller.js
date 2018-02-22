@@ -3,20 +3,24 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
     var self = this;
     self.userService = UserService;
 
-    //book vars
+    // * Book Service * //
     self.bookService = BookService;
-    self.goodreadsBooks = BookService.goodreadsBooks;
-    self.books = BookService.books;
-    self.singleBook = BookService.singleBook;
-    self.bookReviews = BookService.bookReviews;
+    self.goodreadsBooks = BookService.goodreadsBooks; //list of books from the Goodreads API after search
+    self.books = BookService.books; //list of books that have been added to database
+    self.singleBook = BookService.singleBook; //one book from database
+    self.bookReviews = BookService.bookReviews; //list of book reviews for single book
+    self.continents = BookService.continents; //list of continents
+    self.renderHtml = BookService.renderHtml;  //render html for book descriptions
+    self.getBooks = BookService.getBooks; //get all books from database
+    self.getSingleBook = BookService.getSingleBook; //get single book from database
+    self.findBooks = BookService.findBooks; //request to Goodreads API to find books
+    self.addBook = BookService.addBook; //add book to database
+    self.deleteBook = BookService.deleteBook; //delete book from database
 
-    //continent list
-    self.continents = BookService.continents;
+    // * User Service * // 
+    self.addReview = UserService.addReview;  //user adds review/rating to book
 
-    //render html for book descriptions
-    self.renderHtml = BookService.renderHtml;
 
-    //user functions
     //check if book has already been added to users lists
     self.checkBookLists = function(book) {
         if(UserService.checkBookLists(book) === true) {            
@@ -33,10 +37,6 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
         }
     } //end checkBookLists
 
-    
-    //admin functions
-    //sends book search info to BookService
-    self.findBooks = BookService.findBooks;
 
     //check if book has already been added to database
     self.checkBook = function (book, continent) {
@@ -68,23 +68,8 @@ myApp.controller('BookController', ['UserService', 'BookService', '$routeParams'
         }
     } //end checkBook
 
-    //add book to database
-    self.addBook = BookService.addBook;
     
-    //delete book from database
-    self.deleteBook = BookService.deleteBook;
-
-    //review functionality
-    self.addReview = UserService.addReview;
-
-    //functions that get books from database
-    //get books from db
-    self.getBooks = BookService.getBooks;
-
-    // get one book
-    self.getSingleBook = BookService.getSingleBook;
-
-    // do we want one book or all games?
+    // Route params -- do we want one book or all games?
     if($routeParams.id) {
         self.getSingleBook($routeParams.id);
     } else {

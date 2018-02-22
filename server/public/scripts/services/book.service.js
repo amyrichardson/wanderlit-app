@@ -3,7 +3,6 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
     
     var self = this;
 
-
     self.goodreadsBooks = { list: [] };
     self.books = { list: [] };
     self.singleBook = { book: []};
@@ -18,110 +17,8 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
         ] 
     };
 
-    self.renderHtml = function(description) {
-        return $sce.trustAsHtml(description);
-    }
-
-    //makes http get request to Goodreads API, sends data back to BookController
-    self.findBooks = function(bookSearch) {
-        $http.get(`/books/${bookSearch}`).then(function(response) {
-            let books = response.data.GoodreadsResponse.search.results.work;
-            self.goodreadsBooks.list = self.getBookDescriptions(books);  
-            console.log(self.goodreadsBooks.list);
-                    
-        })
-        .catch(function(error) {
-            console.log('error: ', error);
-            swal({
-                title: 'Uh oh.',
-                text: `Something went wrong. Please try again.`,
-                icon: 'error',
-                button: 'OK'
-              })     
-        })
-    } //end findBooks
-
-    //get book descriptions
-    self.getBookDescriptions = function(books) {
-        for (let i = 0; i < books.length; i++) {
-            let book = books[i];
-            $http.get(`/description/${book.best_book.id._text}`).then(function(response){
-                book.description = response.data.GoodreadsResponse.book.description._cdata;
-            })
-            .catch(function(error){
-                console.log('book description error', error);  
-            })
-        }
-        return books;
-    }
-
-    //sends new book info to server
-    self.addBook = function(book, continent) { 
-        let bookToAdd = {
-            goodreadsId: book.best_book.id._text,
-            title: book.best_book.title._text,
-            author: book.best_book.author.name._text,
-            cover_url: book.best_book.image_url._text,
-            average_rating: book.average_rating._text,
-            year_published: book.original_publication_year._text,
-            continent: continent.name,
-            description: book.description,
-            ratings_count: book.ratings_count._text
-        } //end bookToAdd object       
-        //post bookToAdd to book router
-        $http.post('/books', bookToAdd).then(function(response){
-            self.addBookSnackbar();
-        })
-        .catch(function(error){
-            console.log('error on post: ', error);
-            swal({
-                title: 'Uh oh.',
-                text: `Something went wrong. Please try again.`,
-                icon: 'error',
-                button: 'OK'
-              })
-              return false;   
-        })
-    } //end addBook
-
-    self.addBookSnackbar = function () {
-        var x = document.getElementById('snackbar');
-        x.className = 'show';
-        setTimeout(function () {
-            x.className = x.className.replace('show', '');
-        }, 3000);
-    } //end addBookSnackbar
-
-
-    //delete book from db
-    self.deleteBook = function(bookId) {        
-        swal({
-            text: "Are you sure you want to delete this book?",
-            icon: "warning",
-            buttons: ['Nevermind', 'Yes, delete it'],
-            dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                $http.delete(`/books/${bookId}`).then(function(response) {
-                    swal("The book was deleted.");
-                    self.getBooks();
-                })
-                .catch(function(error){
-                    console.log('delete error:', error);
-                    swal({
-                        title: 'Uh oh.',
-                        text: `Something went wrong. Please try again.`,
-                        icon: 'error',
-                        button: 'OK'
-                      })   
-                })
-            } else {
-              swal("Great! The book is safe.");
-            }
-          });
-    }//end delete book
-  
+    //on load
+    self.getBooks();
 
     //get books by continent 
     self.getBooks = function(continent) {
@@ -174,8 +71,109 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
             })
     } //end getBookReviews
 
-    //on load
-    self.getBooks();
-    
+    //makes http get request to Goodreads API, sends data back to BookController
+    self.findBooks = function(bookSearch) {
+        $http.get(`/books/${bookSearch}`).then(function(response) {
+            let books = response.data.GoodreadsResponse.search.results.work;
+            self.goodreadsBooks.list = self.getBookDescriptions(books);  
+            console.log(self.goodreadsBooks.list);
+                    
+        })
+        .catch(function(error) {
+            console.log('error: ', error);
+            swal({
+                title: 'Uh oh.',
+                text: `Something went wrong. Please try again.`,
+                icon: 'error',
+                button: 'OK'
+              })     
+        })
+    } //end findBooks
+
+    //get book descriptions
+    self.getBookDescriptions = function(books) {
+        for (let i = 0; i < books.length; i++) {
+            let book = books[i];
+            $http.get(`/description/${book.best_book.id._text}`).then(function(response){
+                book.description = response.data.GoodreadsResponse.book.description._cdata;
+            })
+            .catch(function(error){
+                console.log('book description error', error);  
+            })
+        }
+        return books;
+    } //end getBookDescriptions
+
+    //render html for book descriptions
+    self.renderHtml = function(description) {
+        return $sce.trustAsHtml(description);
+    } //end renderHtml
+
+    //sends new book info to server
+    self.addBook = function(book, continent) { 
+        let bookToAdd = {
+            goodreadsId: book.best_book.id._text,
+            title: book.best_book.title._text,
+            author: book.best_book.author.name._text,
+            cover_url: book.best_book.image_url._text,
+            average_rating: book.average_rating._text,
+            year_published: book.original_publication_year._text,
+            continent: continent.name,
+            description: book.description,
+            ratings_count: book.ratings_count._text
+        } //end bookToAdd object       
+        //post bookToAdd to book router
+        $http.post('/books', bookToAdd).then(function(response){
+            self.addBookSnackbar();
+        })
+        .catch(function(error){
+            console.log('error on post: ', error);
+            swal({
+                title: 'Uh oh.',
+                text: `Something went wrong. Please try again.`,
+                icon: 'error',
+                button: 'OK'
+            })
+            return false;   
+        })
+    } //end addBook
+   
+    self.addBookSnackbar = function () {
+        var x = document.getElementById('snackbar');
+        x.className = 'show';
+        setTimeout(function () {
+            x.className = x.className.replace('show', '');
+        }, 3000);
+    } //end addBookSnackbar
+
+
+    //delete book from db
+    self.deleteBook = function(bookId) {        
+        swal({
+            text: "Are you sure you want to delete this book?",
+            icon: "warning",
+            buttons: ['Nevermind', 'Yes, delete it'],
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                $http.delete(`/books/${bookId}`).then(function(response) {
+                    swal("The book was deleted.");
+                    self.getBooks();
+                })
+                .catch(function(error){
+                    console.log('delete error:', error);
+                    swal({
+                        title: 'Uh oh.',
+                        text: `Something went wrong. Please try again.`,
+                        icon: 'error',
+                        button: 'OK'
+                      })   
+                })
+            } else {
+              swal("Great! The book is safe.");
+            }
+          });
+    }//end delete book
 
 }]);
