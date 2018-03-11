@@ -1,18 +1,18 @@
-<header ng-include="'/views/partials/main-header.html'"></header>
-
-<div class="form-container">
-  <h1 class="display">register</h1>
-  <h1 class="user-alert" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
-  <form class="form" ng-submit="vm.registerUser()">
-    <div>
-        <input class="user-input" type="text" ng-model="vm.user.username" placeholder="Username"/>
-    </div>
-    <div>
-        <input class="user-input" type="password" ng-model="vm.user.password" placeholder="Password"/>
-    </div>
-    <div>
-      <button class="form-btn" type="submit">Register</button>
-      <a class="form-link" href="#!home">Cancel</a>
-    </div>
-  </form>
+<div class="home-wrapper">
+  <div class="home-inner">
+    <form class="form" ng-submit="vm.registerUser()">
+      <h1 class="display home-header">register</h1>
+      <h1 class="user-alert" role="alert" ng-if="vm.message != ''">{{vm.message}}</h2>
+      <div>
+          <input class="user-input" type="text" ng-model="vm.user.username" placeholder="Username"/>
+      </div>
+      <div>
+          <input class="user-input" type="password" ng-model="vm.user.password" placeholder="Password"/>
+      </div>
+      <div>
+        <button class="form-btn" type="submit">Register</button>
+        <a class="home-btn" href="#!home">Cancel</a>
+      </div>
+    </form>
+  </div>
 </div>

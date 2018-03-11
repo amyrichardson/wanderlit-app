@@ -47,7 +47,6 @@
                         <button ng-click="vm.changeBookStatus(book.book_id, 'currently_reading')" class="main-btn">Start Reading</button>
                         <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn">Delete</button> 
                     </div>
-                    
                 </div>
                
             </div>
@@ -59,7 +58,7 @@
         <h3>Previously Read</h3>
     </div> 
     <div>
-        <input class="filter-medium"  type="text" id="query" ng-model="query" placeholder="Filter by title/author">
+        <input class="filter-medium read-filter"  type="text" id="query" ng-model="query" placeholder="Filter books (title/author/continent/keyword)">
     </div>
     <div ng-if="vm.previouslyRead.list.length == 0">
         <h4>You don't have any books added to this list yet.</h4>
@@ -73,10 +72,12 @@
                 <a class="book-title details-link" href="#!book/{{book.book_id}}">{{book.title}}</a>
                 <p>By {{book.author}}</p>
                 <p>{{book.continent}}</p>
+                <jk-rating-stars class="action" ng-if="book.rating" rating="book.rating" read-only="true" ></jk-rating-stars>
+
                 <div class="book-action">
-                    <jk-rating-stars class="action" ng-if="book.rating" rating="book.rating" read-only="true" ></jk-rating-stars>
                     <a class="action" ng-if="!book.rating" href="#!book/{{book.book_id}}/review">Rate/Review</a>
                     <button ng-click="vm.removeBookFromLists(book.book_id)" class="main-btn action">Delete</button>
+
                 </div>
             </div> 
         </div>

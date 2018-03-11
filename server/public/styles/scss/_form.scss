@@ -27,6 +27,10 @@ select {
     background-color: $primary-medium;
 }
 
+.read-filter {
+    width: 380px;
+}
+
 .form {
     @extend %form;
 }
@@ -43,8 +47,9 @@ select {
 
 .user-input {
     @extend %input;
-    background-color: $primary-light;
+    background-color: transparent;
     font-size: 14pt;
+    color: white;
 }
 
 .user-alert {

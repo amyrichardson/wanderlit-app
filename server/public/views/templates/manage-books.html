@@ -16,7 +16,7 @@
         </div>
 </div>
 <div class="book-container">
-    <div class="book-info" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating' ">
+    <div class="book-info" ng-repeat="book in vm.books.list | filter:query | orderBy: '-ratings_count'">
         <div class="main-info">
             <div class="book-details">
                 <div>
@@ -26,7 +26,8 @@
                     <a href="#!/manage-book/{{book.id}}" class="book-title details-link">{{book.title}}</a>
                     <p>By {{book.author}}</p>
                     <p>Rating: {{book.average_rating}}</p>
-                    <p>Published: {{book.year_published}}</p>
+                    <p>Number of Ratings: {{book.ratings_count | number}}</p>
+                    <p ng-if="book.year_published">Published: {{book.year_published}}</p>
                     <p>{{book.continent}}</p>
                 </div>
             </div>

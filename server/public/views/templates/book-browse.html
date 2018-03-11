@@ -3,18 +3,18 @@
 <div id="snackbar">Added book successfully.</div>
 
 <div class="container">
-    <h2 class="heading">Search for Books</h2>
+    <h2 class="heading">Browse for Books</h2>
     <div class="form-container">
         <div class="form">
                 <select ng-change="vm.getBooks(vm.selectedContinent)" ng-model="vm.selectedContinent" ng-options="continent.name for continent in vm.continents.list">
                         <option value="">All continents</option>
                 </select>
-                <input class="filter"  type="text" id="query" ng-model="query" placeholder="Filter by title/author">
+                <input class="filter"  type="text" id="query" ng-model="query" placeholder="Filter books (title/author/keyword)">
         </div>
     </div>   
 </div>    
     <div class="book-container">
-        <div class="book-info" ng-repeat="book in vm.books.list | filter:query | orderBy: '-average_rating'">
+        <div class="book-info" ng-repeat="book in vm.books.list | filter:query | orderBy: '-ratings_count'">
             <div class="main-info">
                 <div class="book-details">
                     <div>
@@ -24,12 +24,13 @@
                         <a href="#!book/{{book.id}}" class="book-title details-link">{{book.title}}</a>
                         <p>By {{book.author}}</p>
                         <p>Rating: {{book.average_rating}}</p>
-                        <p>Published: {{book.year_published}}</p>
+                        <p>Number of Ratings: {{book.ratings_count | number }}</p>
+                        <p ng-if="book.year_published">Published: {{book.year_published}}</p>
                         <p>{{book.continent}}</p>
                     </div>
                 </div>
             </div>
-            <div class="book-action">
+            <div class="book-action flex-end">
                 <div>
                     <select ng-model="book.status">
                         <option value="">Select a list</option>

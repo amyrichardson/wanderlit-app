@@ -13,7 +13,7 @@
                 <p><i>{{vm.singleBook.book.title}}</i></p>
                 <p>By {{vm.singleBook.book.author}}</p>
                 <p>{{vm.singleBook.book.continent}}</p>
-                <p>Published in {{vm.singleBook.book.year_published}}.</p>
+                <p ng-if="vm.singleNook.book.year_published">Published in {{vm.singleBook.book.year_published}}.</p>
                 <div class="single-actions">
                     <button ng-click="vm.deleteBook(vm.singleBook.book.id)" class="main-btn">Delete</button>
                 </div>
@@ -23,15 +23,20 @@
                 <p ng-bind-html="vm.renderHtml(vm.singleBook.book.description)"></p>
             </div>
         </div>
-
-
         <div class="reviews-container">
-            <h3>Ratings/Reviews</h3>
+            <h3>Wanderlit Ratings/Reviews</h3>
+            <jk-rating-stars max-rating="5" rating="vm.singleBook.book.average_rating" read-only="true"></jk-rating-stars>
             <p>Average Rating: {{vm.singleBook.book.average_rating}}</p>
-            <ul class="reviews-list">
-                <li class="review">"Best book ever!" -User</li>
-                <li class="review">"Beautiful." -AnotherUser</li>
-            </ul>
+            <p>Number of Ratings: {{vm.singleBook.book.ratings_count | number}}</p>
+            <div class="reviews-list">
+                <div class="review" ng-if="vm.bookReviews.list.length === 0">
+                    <p>No reviews have been added for this book yet.</p>
+                </div>
+                <div class="review" ng-repeat="review in vm.bookReviews.list">
+                    <p>"{{review.review}}" -{{review.username}}</p>
+                    <p>({{review.rating}}/5 stars)</p>
+                </div>
+            </div>
         </div>
     </div>
 

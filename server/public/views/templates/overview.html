@@ -5,14 +5,14 @@
   <h3>Total Books: {{vm.totalBooksRead.total[0]}}</h3>
   <ul ng-if="vm.totalBooksRead.total[0] > 0" class="continent-key">
     <div class="continent-list">
-      <li><i id="africa-key" class="key-icon fas fa-square"></i>Africa - {{vm.data[0]}} book<span ng-if="vm.data[0] > 1">s</span></li>
-      <li><i id="asia-key" class="key-icon fas fa-square"></i>Asia - {{vm.data[1]}} book<span ng-if="vm.data[1] > 1">s</span></li>
-      <li><i id="australia-key" class="key-icon fas fa-square"></i>Australia - {{vm.data[2]}} book<span ng-if="vm.data[2] > 1">s</span></li>
+      <li><i id="africa-key" class="key-icon fas fa-square"></i>Africa</li>
+      <li><i id="asia-key" class="key-icon fas fa-square"></i>Asia</li>
+      <li><i id="australia-key" class="key-icon fas fa-square"></i>Australia</li>
     </div>
     <div class="continent-list">
-      <li><i id="europe-key" class="key-icon fas fa-square"></i>Europe - {{vm.data[3]}} book<span ng-if="vm.data[3] > 1">s</span></li>
-      <li><i id="northamerica-key" class="key-icon fas fa-square"></i>North America - {{vm.data[4]}} book<span ng-if="vm.data[4] > 1">s</span></li>
-      <li><i id="southamerica-key" class="key-icon fas fa-square"></i>South America - {{vm.data[5]}} book<span ng-if="vm.data[5] > 1">s</span></li>
+      <li><i id="europe-key" class="key-icon fas fa-square"></i>Europe</li>
+      <li><i id="northamerica-key" class="key-icon fas fa-square"></i>North America</li>
+      <li><i id="southamerica-key" class="key-icon fas fa-square"></i>South America</li>
     </div>
   </ul>
   <canvas ng-if="vm.totalBooksRead.total[0] > 0" id="doughnut" class="chart chart-doughnut"

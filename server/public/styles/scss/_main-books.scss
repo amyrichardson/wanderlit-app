@@ -41,8 +41,16 @@
 .book-action {
     width: 95%;
     display: flex;
-    justify-content: flex-end;
+    align-items: baseline;
     margin-bottom: 10px;
+}
+
+.book-action > div > button {
+    margin: 5px 0px;
+}
+
+.flex-end {
+    justify-content: flex-end;
 }
 
 .book-action > a {
@@ -50,6 +58,8 @@
     color: $accent-1;
     margin: 0px 20px;
 }
+
+
 
 .book-action > a:hover {
     color: $accent-2;

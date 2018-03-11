@@ -60,3 +60,54 @@ body, html {
 }
 
 #mapid { height: 500px; }
+
+.home-wrapper {
+    position: relative;
+    background-image: url('../../images/book-stack.jpg');
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.home-inner {
+    min-width: 400px;
+    text-align: center;
+    padding: 40px 100px;
+    margin-left: 160px;
+    background-color: $transparent-dark;
+    border-radius: 5px;
+    border: 4px solid $green-transparent;
+}
+
+.home-header {
+    color: $blue-transparent;
+    font-size: 72pt;
+    line-height: 0;
+    text-shadow: 2px 2px $primary-medium;
+}
+
+.home-tagline {
+    color: $primary-light;
+    font-style: italic;
+    font-size: 16pt;
+    line-height: .75;
+}
+
+.home-btn {
+    line-height: 3;
+    font-size: 14pt;
+    width: 100px;
+    margin: 30px;
+    padding: 10px;
+    text-decoration: none;
+    color: $accent-2;
+    border-bottom: 2px solid $accent-1;
+}
+
+.home-btn:hover {
+    color: $primary-light;
+    // border-bottom: 2px solid $primary-light;
+}

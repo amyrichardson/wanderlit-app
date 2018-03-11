@@ -17,9 +17,6 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
         ] 
     };
 
-    //on load
-    self.getBooks();
-
     //get books by continent 
     self.getBooks = function(continent) {
         //if a continent was chosen, get books for that continent
@@ -41,6 +38,9 @@ myApp.service('BookService', ['$http', '$sce', function($http, $sce) {
         }        
     } //end get Books
 
+    //on load
+    self.getBooks();
+    
     //end getSingleBook
     self.getSingleBook = function(bookId) {
         self.bookReviews.list = [];
