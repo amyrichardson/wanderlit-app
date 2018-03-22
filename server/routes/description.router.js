@@ -7,7 +7,7 @@ var convert = require('xml-js');
 
 router.get('/:bookId', (req,res) => {
     if(req.isAuthenticated()) {
-        axios.get(`https://www.goodreads.com/book/show/${req.params.bookId}.xml?key=OHtX0PJH8qIwgMvihQfpxw`).then(function(response) {
+        axios.get(`https://www.goodreads.com/book/show/${req.params.bookId}.xml?key=${process.env.API_KEY}`).then(function(response) {
             let json = convert.xml2json(response.data, {compact: true, spaces: 4}) //converts xml response to json
             res.send(json); //sends json back to client            
         })
