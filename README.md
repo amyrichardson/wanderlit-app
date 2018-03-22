@@ -16,11 +16,19 @@ Wanderlit is a full-stack application that promotes lovers of literature to read
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+- npm install (installs app dependencies)
+- Spin up database using the name 'wanderlit-app.'
+- Set up tables as listed in the 'Installing' section below.
+- Start PostgreSQL server.
+- npm start (port 5000)
+
+
 ### Prerequisites
 
 Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
+- [PostgreSQL] (https://www.postgresql.org/)
 
 ### Installing
 
